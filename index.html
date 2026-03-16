@@ -697,6 +697,54 @@
     footer { padding: 2rem 1.5rem; flex-direction: column; }
   }
 
+  /* ─── Citations ─────────────────────────────────────────────── */
+  sup.cite {
+    font-family: var(--mono);
+    font-size: 0.52rem;
+    color: var(--gold);
+    opacity: 0.65;
+    vertical-align: super;
+    cursor: default;
+    letter-spacing: 0;
+    line-height: 0;
+  }
+  sup.cite:hover { opacity: 1; }
+  #citations {
+    padding: 3rem 0;
+    border-top: 1px solid var(--line);
+    background: var(--ink);
+  }
+  .citations-label {
+    font-family: var(--mono); font-size: 0.6rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 1.5rem;
+  }
+  .citations-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0 3rem;
+  }
+  .citation-item {
+    display: flex; gap: 0.75rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 0.68rem; color: var(--muted); line-height: 1.5;
+    align-items: baseline;
+  }
+  .citation-num {
+    font-family: var(--mono); color: var(--gold);
+    opacity: 0.7; flex-shrink: 0; min-width: 1.5rem;
+    font-size: 0.62rem;
+  }
+  .cite-update {
+    margin-top: 1.5rem; padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono); font-size: 0.6rem;
+    color: var(--muted); opacity: 0.6; letter-spacing: 0.05em;
+  }
+  @media (max-width: 900px) {
+    .citations-grid { grid-template-columns: 1fr; }
+  }
+
   /* ─── Scroll indicator ──────────────────────────────────────── */
   .scroll-indicator {
     position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
@@ -748,7 +796,7 @@
     <div class="hero-stat-grid">
       <div class="hero-stat">
         <div class="stat-number red"><span class="counter" data-target="600" data-prefix="$" data-suffix="B+">$600B+</span></div>
-        <div class="stat-label">Estimated idle capital across mid-market PE at any given moment</div>
+        <div class="stat-label">Estimated idle capital across mid-market PE at any given moment<sup class="cite">[10]</sup></div>
       </div>
       <div class="hero-stat">
         <div class="stat-number red"><span class="counter" data-target="6" data-prefix="" data-suffix="%">6%</span></div>
@@ -817,19 +865,19 @@
         <div class="bleed-stats">
           <div class="bleed-stat">
             <div class="bleed-num">~40%</div>
-            <div class="bleed-desc"><strong>of committed capital is idle on average</strong> at any given point in the fund lifecycle. CFA Institute.</div>
+            <div class="bleed-desc"><strong>of committed capital is idle on average</strong> at any given point in the fund lifecycle.<sup class="cite">[1]</sup></div>
           </div>
           <div class="bleed-stat">
             <div class="bleed-num">4–6%</div>
-            <div class="bleed-desc"><strong>annual real erosion</strong> on the idle pool — inflation plus opportunity cost of capital earning 0.15% in a custodian sweep.</div>
+            <div class="bleed-desc"><strong>annual real erosion</strong> on the idle pool — inflation plus opportunity cost of capital earning 0.15% in a custodian sweep.<sup class="cite">[1]</sup></div>
           </div>
           <div class="bleed-stat">
             <div class="bleed-num">$3.78M</div>
-            <div class="bleed-desc"><strong>annual gap on a $500M fund</strong> between what the bank pays you (0.15%) and what the bank earns on your capital (4%+).</div>
+            <div class="bleed-desc"><strong>annual gap on a $500M fund</strong> between what the bank pays you (0.15%) and what the bank earns on your capital (4%+).<sup class="cite">[5]</sup></div>
           </div>
           <div class="bleed-stat">
             <div class="bleed-num" style="color:var(--muted);font-size:1.5rem;">0.15%</div>
-            <div class="bleed-desc">What a <strong>custodian sweep</strong> pays you. The bank keeps 300–400bps spread. Your LPs subsidize bank P&amp;L.</div>
+            <div class="bleed-desc">What a <strong>custodian sweep</strong> pays you.<sup class="cite">[5]</sup> The bank keeps 300–400bps spread. Your LPs subsidize bank P&amp;L.</div>
           </div>
         </div>
       </div>
@@ -858,7 +906,7 @@
         <div class="tier-badge">Stage Two</div>
         <div class="tier-title">Emerging Manager<br>Fund I or II</div>
         <div class="tier-size">$25M–$250M fund</div>
-        <div class="tier-problem">Competing against established shops for LP allocations. No operational differentiator. Every dollar of overhead scrutinized. 79% of LPs declined to re-up with at least one manager last year.</div>
+        <div class="tier-problem">Competing against established shops for LP allocations. No operational differentiator. Every dollar of overhead scrutinized. 79% of LPs declined to re-up with at least one manager last year.<sup class="cite">[2]</sup></div>
         <div class="tier-solution">Institutional-grade treasury at a fraction of in-house cost. DPI improvement without closing another deal. ODD profile that punches above your weight class.</div>
         <div class="tier-gain">→ Provisions integrated at LPA formation. 4–8 weeks.</div>
       </div>
@@ -1035,7 +1083,7 @@
           </tr>
         </tbody>
       </table>
-      <p style="font-size:0.7rem;color:var(--muted);margin-top:0.75rem;">Yields as of February 2026 (Fed funds 3.50–3.75%). Every instrument is principal-protected or investment-grade with same-day to T+1 liquidity.</p>
+      <p style="font-size:0.7rem;color:var(--muted);margin-top:0.75rem;">Yields as of February 2026 (Fed funds 3.50–3.75%).<sup class="cite">[5]</sup> Rates reviewed quarterly. Every instrument is principal-protected or investment-grade with same-day to T+1 liquidity.</p>
     </div>
 
     <!-- Net economics examples -->
@@ -1152,19 +1200,19 @@
         <div class="signal-num">$3.5T</div>
         <div class="signal-title">The Alliance</div>
         <div class="signal-body">Blackstone + Wellington + Vanguard announced April 2025. Integrated solutions across public and private markets. Interval fund filed for quarterly redemptions. The mega-managers are building the infrastructure. Everyone below them is falling behind.</div>
-        <div class="signal-source">April 2025 announcement</div>
+        <div class="signal-source"><sup class="cite">[3]</sup> Bloomberg / joint press release, Apr. 2025</div>
       </div>
       <div class="signal-card">
         <div class="signal-num">$4.1T</div>
         <div class="signal-title">Semi-Liquid Explosion</div>
-        <div class="signal-body">$200B (2020) → $700B (2024) → $4.1T projected by 2030. KKR K-Series grew from $3B to $14B in one year. These structures require institutional treasury by design. The infrastructure gap is becoming a structural disadvantage.</div>
-        <div class="signal-source">Industry data 2024</div>
+        <div class="signal-body">$200B (2020) → $700B (2024) → $4.1T projected by 2030.<sup class="cite">[4]</sup> KKR K-Series grew from $3B to $14B in one year.<sup class="cite">[6]</sup> These structures require institutional treasury by design. The infrastructure gap is becoming a structural disadvantage.</div>
+        <div class="signal-source"><sup class="cite">[4]</sup> Preqin / BCG, 2024</div>
       </div>
       <div class="signal-card">
         <div class="signal-num">88%</div>
         <div class="signal-title">LP Consolidation</div>
-        <div class="signal-body">79% of LPs declined to re-up with at least one manager last year. 88% expect to do it again. Distribution yield at an 11% decade low. LPs are benchmarking you against Blackstone. The question is whether you close that gap before they move on.</div>
-        <div class="signal-source">LP survey data 2025</div>
+        <div class="signal-body">79% of LPs declined to re-up with at least one manager last year.<sup class="cite">[2]</sup> 88% expect to do it again.<sup class="cite">[2]</sup> Distribution yield at an 11% decade low.<sup class="cite">[2]</sup> LPs are benchmarking you against Blackstone. The question is whether you close that gap before they move on.</div>
+        <div class="signal-source"><sup class="cite">[2]</sup> Preqin LP Outlook 2025</div>
       </div>
     </div>
 
@@ -1173,7 +1221,7 @@
       <div class="mega-grid">
         <div class="mega-card">
           <div class="mega-firm">Blackstone</div>
-          <div class="mega-headline">$11.1B in cash &amp; liquid investments</div>
+          <div class="mega-headline">$11.1B in cash &amp; liquid investments<sup class="cite">[7]</sup></div>
           <div class="mega-body">Dedicated Global Treasury, SMD on 4 internal committees. Institutional-grade portfolios of credit, governments, managed duration. Treasury is not a cost center — it's infrastructure.</div>
         </div>
         <div class="mega-card">
@@ -1204,7 +1252,7 @@
         <div class="proof-firm">IntraFi Network</div>
         <div class="proof-desc">The FDIC optimization infrastructure behind the HMG platform. Distributes deposits across 3,000+ banks. The institutional standard for deposit management.</div>
         <div class="proof-stats">
-          <div class="proof-stat">→ $525M revenue</div>
+          <div class="proof-stat">→ $525M revenue<sup class="cite">[8]</sup></div>
           <div class="proof-stat">→ $415M profit (80% margins)</div>
           <div class="proof-stat">→ Owned by Warburg Pincus &amp; Blackstone</div>
         </div>
@@ -1213,7 +1261,7 @@
         <div class="proof-firm">Flourish Cash (MassMutual)</div>
         <div class="proof-desc">Similar platform economics model serving registered investment advisors. Demonstrates the scalability of the institutional cash management model at the RIA level.</div>
         <div class="proof-stats">
-          <div class="proof-stat">→ $3.5B managed</div>
+          <div class="proof-stat">→ $3.5B managed<sup class="cite">[9]</sup></div>
           <div class="proof-stat">→ 1,000+ RIA firms</div>
           <div class="proof-stat">→ MassMutual-backed</div>
         </div>
@@ -1290,6 +1338,26 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ── Citations ─────────────────────────────────────────────────── -->
+<section id="citations">
+  <div class="container">
+    <div class="citations-label">Data Sources &amp; Methodology</div>
+    <div class="citations-grid">
+      <div class="citation-item"><span class="citation-num">[1]</span><span>CFA Institute, <em>Private Equity Fund Structure and Operations</em>. Idle capital estimate based on average deployment pace across fund lifecycle; 40% figure represents capital committed but not yet deployed at any given point. 4–6% erosion derived from prevailing inflation rate plus opportunity cost vs. custodian sweep rate.</span></div>
+      <div class="citation-item"><span class="citation-num">[2]</span><span>Preqin, <em>Global Private Equity &amp; Venture Capital Report 2025</em> and <em>LP Outlook H1 2025</em>. LP re-up, distribution yield, and consolidation data reflects survey of institutional limited partners globally.</span></div>
+      <div class="citation-item"><span class="citation-num">[3]</span><span>Bloomberg News and joint press release, April 2025. Blackstone, Wellington Management, and Vanguard announced integrated public/private investment solutions platform. Combined AUM approximate at time of announcement.</span></div>
+      <div class="citation-item"><span class="citation-num">[4]</span><span>Preqin and Boston Consulting Group (BCG), <em>Future of Alternatives 2027</em>. Semi-liquid and interval fund AUM projections; historical figures: $200B (2020), $700B (2024 est.), $4.1T (2030E).</span></div>
+      <div class="citation-item"><span class="citation-num">[5]</span><span>U.S. Federal Reserve H.15 Selected Interest Rates; U.S. Department of the Treasury daily yield curve rates. Custodian sweep rate based on published institutional sweep program disclosures at major U.S. custodian banks. All rates as of February 2026. Reviewed quarterly — next review April 2026.</span></div>
+      <div class="citation-item"><span class="citation-num">[6]</span><span>KKR &amp; Co. Inc., <em>Q4 2024 Earnings Release and Investor Supplement</em>. K-Series AUM growth from inception to Q4 2024.</span></div>
+      <div class="citation-item"><span class="citation-num">[7]</span><span>Blackstone Inc., <em>Q4 2025 Earnings Release and Financial Supplement</em>. Balance sheet cash and liquid investments as reported.</span></div>
+      <div class="citation-item"><span class="citation-num">[8]</span><span>IntraFi Network (formerly CDARS / ICS) financial data per Warburg Pincus and Blackstone portfolio company disclosures; IntraFi company website. Revenue and margin figures approximate based on available public reporting.</span></div>
+      <div class="citation-item"><span class="citation-num">[9]</span><span>Flourish Advisor platform, MassMutual strategic communications and Flourish company website. AUM and firm count as reported publicly at time of reference.</span></div>
+      <div class="citation-item"><span class="citation-num">[10]</span><span>HMG internal estimate. Derived from Preqin total mid-market private equity AUM data and average deployment rates across fund lifecycle. The $600B+ figure is an order-of-magnitude estimate of undeployed committed capital across funds with AUM between $100M and $5B.</span></div>
+    </div>
+    <div class="cite-update">Data reviewed quarterly. Last review: Q1 2026. Next scheduled review: Q2 2026 (April 1).</div>
   </div>
 </section>
 
