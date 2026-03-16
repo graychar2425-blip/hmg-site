@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hilltop Management Group — Permanent Capital Platform</title>
+<meta name="description" content="Institutional-grade treasury infrastructure for private equity and real estate sponsors at every stage. Every dollar working. Every day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* ─── Variables ─────────────────────────────────────────────── */
+  :root {
+    --black:    #070B12;
+    --ink:      #0D1320;
+    --surface:  #111827;
+    --line:     rgba(255,255,255,0.07);
+    --cream:    #F0EAD6;
+    --muted:    #8A8680;
+    --gold:     #C4993A;
+    --gold-lt:  #E8C068;
+    --teal:     #3ABFB0;
+    --red:      #C45B4A;
+    --serif:    'Cormorant Garamond', Georgia, serif;
+    --sans:     'Barlow', sans-serif;
+    --mono:     'IBM Plex Mono', monospace;
+  }
+
+  /* ─── Reset ─────────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; }
+
+  /* ─── Grain overlay ─────────────────────────────────────────── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 9999; opacity: 0.4;
+  }
+
+  /* ─── Nav ───────────────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(7,11,18,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    font-weight: 500; color: var(--muted);
+  }
+  .nav-links a:hover { color: var(--cream); transition: color 0.2s; }
+  .nav-cta {
+    font-family: var(--mono);
+    font-size: 0.68rem; letter-spacing: 0.08em;
+    padding: 0.55rem 1.25rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--black); }
+
+  /* ─── Hero ──────────────────────────────────────────────────── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 3rem;
+    padding-top: 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column;
+    justify-content: center;
+    padding: 4rem 3rem 4rem 0;
+    border-right: 1px solid var(--line);
+    position: relative; z-index: 1;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.65rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 2rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block;
+    width: 2rem; height: 1px; background: var(--gold);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 5.5vw, 5.5rem);
+    font-weight: 300; line-height: 1.08;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+  h1 em { font-style: italic; color: var(--gold); }
+  .hero-sub {
+    font-size: 1.05rem; color: var(--muted);
+    max-width: 38ch; line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--gold);
+    color: var(--black);
+    font-family: var(--mono); font-size: 0.72rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 1rem 2rem;
+    transition: all 0.2s; cursor: pointer; border: none;
+  }
+  .btn-primary:hover { background: var(--gold-lt); transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    font-family: var(--mono); font-size: 0.72rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 1rem 2rem;
+    transition: all 0.2s; cursor: pointer;
+  }
+  .btn-secondary:hover { border-color: var(--cream); color: var(--cream); }
+
+  .hero-right {
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    padding: 4rem 0 4rem 3rem;
+    position: relative;
+  }
+  .hero-stat-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; width: 100%;
+  }
+  .hero-stat {
+    padding: 2.5rem;
+    border-bottom: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 0.6s forwards;
+  }
+  .hero-stat:nth-child(2) { animation-delay: 0.15s; }
+  .hero-stat:nth-child(3) { animation-delay: 0.3s; border-bottom: none; }
+  .hero-stat:nth-child(4) { animation-delay: 0.45s; border-bottom: none; border-right: none; }
+  .hero-stat:nth-child(1) { animation-delay: 0s; }
+  .hero-stat:nth-child(2) { border-right: none; }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .stat-number {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: 300; line-height: 1;
+    color: var(--cream);
+    margin-bottom: 0.4rem;
+  }
+  .stat-number.teal { color: var(--teal); }
+  .stat-number.gold { color: var(--gold); }
+  .stat-number.red  { color: var(--red); }
+  .stat-label {
+    font-family: var(--mono); font-size: 0.6rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); line-height: 1.4;
+  }
+
+  /* ─── Section base ──────────────────────────────────────────── */
+  section { position: relative; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+  .section-label {
+    font-family: var(--mono); font-size: 0.62rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-label::before {
+    content: ''; width: 1.5rem; height: 1px; background: var(--gold);
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 3.8rem);
+    font-weight: 300; line-height: 1.1;
+    color: var(--cream); margin-bottom: 1.5rem;
+  }
+  h2 em { font-style: italic; color: var(--gold); }
+  h3 {
+    font-family: var(--serif);
+    font-size: 1.6rem; font-weight: 400;
+    color: var(--cream);
+  }
+  p { color: rgba(240,234,214,0.75); max-width: 62ch; line-height: 1.75; }
+
+  /* ─── Reveal animations ─────────────────────────────────────── */
+  .reveal {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── Divider ────────────────────────────────────────────────── */
+  .rule { border: none; border-top: 1px solid var(--line); }
+
+  /* ─── Problem section ───────────────────────────────────────── */
+  #problem {
+    padding: 8rem 0;
+    background: var(--ink);
+    border-top: 1px solid var(--line);
+  }
+  .problem-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; align-items: center;
+  }
+  .bleed-stats {
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .bleed-stat {
+    display: flex; align-items: baseline; gap: 1.5rem;
+    padding: 2rem 0; border-bottom: 1px solid var(--line);
+  }
+  .bleed-stat:first-child { border-top: 1px solid var(--line); }
+  .bleed-num {
+    font-family: var(--serif); font-size: 3.5rem;
+    font-weight: 300; line-height: 1; color: var(--red);
+    white-space: nowrap; min-width: 6rem;
+  }
+  .bleed-desc {
+    font-family: var(--sans); font-size: 0.9rem;
+    color: var(--muted); line-height: 1.5;
+  }
+  .bleed-desc strong { color: var(--cream); font-weight: 400; }
+
+  /* ─── Lifecycle journey ─────────────────────────────────────── */
+  .journey {
+    margin-top: 3rem; display: flex; flex-direction: column; gap: 0;
+  }
+  .journey-step {
+    display: grid; grid-template-columns: 3rem 1fr;
+    gap: 1.5rem; padding: 1.75rem 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .journey-step:first-child { border-top: 1px solid var(--line); }
+  .step-num {
+    font-family: var(--mono); font-size: 0.65rem;
+    color: var(--gold); padding-top: 0.15rem;
+  }
+  .step-body strong {
+    display: block; font-family: var(--sans);
+    font-weight: 500; font-size: 0.85rem;
+    color: var(--cream); margin-bottom: 0.3rem;
+    letter-spacing: 0.03em;
+  }
+  .step-body span {
+    font-size: 0.82rem; color: var(--muted);
+  }
+  .step-body .dead-zone {
+    font-family: var(--mono); font-size: 0.65rem;
+    color: var(--red); margin-top: 0.4rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── Who it's for ──────────────────────────────────────────── */
+  #audience { padding: 8rem 0; }
+  .audience-header { margin-bottom: 5rem; }
+  .tier-cards {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    border: 1px solid var(--line);
+  }
+  .tier-card {
+    padding: 3rem 2.5rem;
+    border-right: 1px solid var(--line);
+    position: relative; overflow: hidden;
+    transition: background 0.3s;
+  }
+  .tier-card:last-child { border-right: none; }
+  .tier-card:hover { background: rgba(196,153,58,0.04); }
+  .tier-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: var(--gold); opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .tier-card:hover::before { opacity: 1; }
+  .tier-badge {
+    font-family: var(--mono); font-size: 0.6rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.5rem;
+  }
+  .tier-title {
+    font-family: var(--serif); font-size: 1.5rem;
+    font-weight: 400; color: var(--cream);
+    margin-bottom: 0.75rem; line-height: 1.2;
+  }
+  .tier-size {
+    font-family: var(--mono); font-size: 0.68rem;
+    color: var(--muted); margin-bottom: 2rem;
+  }
+  .tier-problem {
+    font-size: 0.85rem; color: var(--muted);
+    margin-bottom: 2rem; line-height: 1.65;
+  }
+  .tier-solution {
+    font-size: 0.85rem; color: rgba(58,191,176,0.9);
+    line-height: 1.65; padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .tier-gain {
+    margin-top: 1.5rem;
+    font-family: var(--mono); font-size: 0.7rem;
+    color: var(--teal); letter-spacing: 0.05em;
+  }
+
+  /* ─── Platform section ──────────────────────────────────────── */
+  #platform {
+    padding: 8rem 0;
+    background: var(--ink);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .platform-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; align-items: start;
+  }
+  .feature-list {
+    display: flex; flex-direction: column; gap: 0;
+    margin-top: 3rem;
+  }
+  .feature-item {
+    display: grid; grid-template-columns: auto 1fr;
+    gap: 1.25rem; padding: 1.5rem 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .feature-item:first-child { border-top: 1px solid var(--line); }
+  .feature-check {
+    width: 1.25rem; height: 1.25rem;
+    border: 1px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 0.1rem; flex-shrink: 0;
+  }
+  .feature-check::after {
+    content: '✓'; font-size: 0.65rem; color: var(--gold);
+  }
+  .feature-text strong {
+    display: block; font-weight: 500; font-size: 0.88rem;
+    color: var(--cream); margin-bottom: 0.25rem;
+  }
+  .feature-text span { font-size: 0.82rem; color: var(--muted); }
+
+  /* Flywheel */
+  .flywheel {
+    border: 1px solid var(--line);
+    padding: 3rem;
+    position: relative;
+  }
+  .flywheel-title {
+    font-family: var(--mono); font-size: 0.62rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 2.5rem;
+  }
+  .flywheel-steps {
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .fw-step {
+    display: flex; align-items: stretch; gap: 0;
+    position: relative;
+  }
+  .fw-connector {
+    width: 2px; background: var(--line);
+    margin: 0 1.5rem;
+    flex-shrink: 0; position: relative;
+  }
+  .fw-connector::before {
+    content: ''; position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 8px; height: 8px;
+    border: 1px solid var(--gold);
+    background: var(--ink);
+    border-radius: 50%;
+  }
+  .fw-last .fw-connector { background: transparent; }
+  .fw-content {
+    padding: 1.5rem 0; flex: 1;
+    border-bottom: 1px solid var(--line);
+  }
+  .fw-last .fw-content { border-bottom: none; }
+  .fw-label {
+    font-family: var(--mono); font-size: 0.6rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 0.3rem;
+  }
+  .fw-desc {
+    font-size: 0.82rem; color: var(--muted);
+  }
+  .flywheel-arrow {
+    text-align: center; margin-top: 1.5rem;
+    font-family: var(--mono); font-size: 0.65rem;
+    color: var(--gold); letter-spacing: 0.15em;
+  }
+
+  /* ─── Numbers / Yield table ─────────────────────────────────── */
+  #numbers { padding: 8rem 0; }
+  .numbers-intro {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; margin-bottom: 5rem;
+    align-items: end;
+  }
+  .data-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 0.83rem; margin-bottom: 3rem;
+  }
+  .data-table th {
+    font-family: var(--mono); font-size: 0.6rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); font-weight: 400;
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+  }
+  .data-table th:not(:first-child) { text-align: right; }
+  .data-table td {
+    padding: 1.1rem 1.25rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--cream);
+  }
+  .data-table td:not(:first-child) { text-align: right; font-family: var(--mono); }
+  .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .data-table .total-row td {
+    border-top: 1px solid var(--gold);
+    color: var(--gold-lt); font-weight: 500;
+  }
+  .data-table .yield-col { color: var(--teal); }
+  .data-table .alloc-col { color: var(--muted); }
+
+  .econ-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2px; background: var(--line);
+    border: 1px solid var(--line);
+    margin-bottom: 2rem;
+  }
+  .econ-col {
+    background: var(--ink);
+    padding: 2.5rem;
+  }
+  .econ-head {
+    font-family: var(--mono); font-size: 0.62rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 2rem;
+    padding-bottom: 1rem; border-bottom: 1px solid var(--line);
+  }
+  .econ-line {
+    display: flex; justify-content: space-between;
+    align-items: baseline; gap: 1rem;
+    padding: 0.6rem 0; border-bottom: 1px solid var(--line);
+    font-size: 0.85rem;
+  }
+  .econ-line:last-child { border-bottom: none; }
+  .econ-line .label { color: var(--muted); }
+  .econ-line .value { font-family: var(--mono); color: var(--cream); }
+  .econ-line.gain .value { color: var(--teal); font-size: 1rem; }
+  .econ-line.fee .value { color: var(--muted); }
+
+  /* Full economics table */
+  .econ-table {
+    width: 100%; border-collapse: collapse; font-size: 0.8rem;
+    overflow-x: auto; display: block;
+  }
+  .econ-table th {
+    font-family: var(--mono); font-size: 0.58rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); font-weight: 400;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap; text-align: right;
+  }
+  .econ-table th:first-child { text-align: left; }
+  .econ-table td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--line);
+    text-align: right; font-family: var(--mono);
+    color: var(--muted); white-space: nowrap;
+  }
+  .econ-table td:first-child {
+    text-align: left; font-family: var(--sans);
+    font-weight: 500; color: var(--cream);
+  }
+  .econ-table .net-gain { color: var(--teal); font-weight: 500; }
+  .econ-table tr:hover td { background: rgba(255,255,255,0.015); }
+
+  /* ─── Why now ───────────────────────────────────────────────── */
+  #why-now {
+    padding: 8rem 0;
+    background: var(--ink);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .signals-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 0; margin-top: 4rem;
+    border: 1px solid var(--line);
+  }
+  .signal-card {
+    padding: 2.5rem;
+    border-right: 1px solid var(--line);
+    transition: background 0.3s;
+  }
+  .signal-card:last-child { border-right: none; }
+  .signal-num {
+    font-family: var(--serif); font-size: 3rem;
+    font-weight: 300; color: var(--gold);
+    line-height: 1; margin-bottom: 1rem;
+  }
+  .signal-title {
+    font-family: var(--sans); font-weight: 500;
+    font-size: 0.85rem; color: var(--cream);
+    margin-bottom: 0.75rem; letter-spacing: 0.03em;
+  }
+  .signal-body { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+  .signal-source {
+    margin-top: 1.25rem;
+    font-family: var(--mono); font-size: 0.6rem;
+    color: var(--gold); letter-spacing: 0.1em; opacity: 0.7;
+  }
+
+  /* Mega-manager bar */
+  .mega-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 0; margin-top: 4rem;
+    border: 1px solid var(--line);
+  }
+  .mega-card {
+    padding: 2.5rem; border-right: 1px solid var(--line);
+  }
+  .mega-card:last-child { border-right: none; }
+  .mega-firm {
+    font-family: var(--mono); font-size: 0.65rem;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .mega-headline {
+    font-family: var(--serif); font-size: 1.35rem;
+    font-weight: 300; color: var(--cream);
+    margin-bottom: 0.75rem; line-height: 1.3;
+  }
+  .mega-body { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+
+  /* ─── Proof / model validation ──────────────────────────────── */
+  #proof { padding: 8rem 0; }
+  .proof-logos {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 0; margin-top: 4rem;
+    border: 1px solid var(--line);
+  }
+  .proof-item {
+    padding: 2.5rem; border-right: 1px solid var(--line);
+  }
+  .proof-item:last-child { border-right: none; }
+  .proof-firm {
+    font-family: var(--sans); font-weight: 600;
+    font-size: 1.1rem; color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+  .proof-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.25rem; }
+  .proof-stats {
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .proof-stat {
+    font-family: var(--mono); font-size: 0.68rem;
+    color: var(--teal);
+  }
+
+  /* ─── Pricing ───────────────────────────────────────────────── */
+  #pricing {
+    padding: 8rem 0;
+    background: var(--ink);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .pricing-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; margin-top: 4rem;
+    border: 1px solid var(--line);
+  }
+  .pricing-item {
+    padding: 3rem; border-right: 1px solid var(--line);
+  }
+  .pricing-item:last-child { border-right: none; }
+  .pricing-rate {
+    font-family: var(--serif); font-size: 3.5rem;
+    font-weight: 300; color: var(--gold); line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .pricing-type {
+    font-family: var(--mono); font-size: 0.65rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 1.5rem;
+  }
+  .pricing-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+  .pricing-note {
+    margin-top: 1rem; font-family: var(--mono);
+    font-size: 0.65rem; color: var(--teal); letter-spacing: 0.05em;
+  }
+
+  /* ─── CTA ───────────────────────────────────────────────────── */
+  #cta { padding: 10rem 0; text-align: center; }
+  .cta-inner { max-width: 700px; margin: 0 auto; }
+  .cta-inner h2 {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    margin-bottom: 1.5rem;
+  }
+  .cta-inner p {
+    font-size: 1.05rem; color: var(--muted);
+    margin: 0 auto 3rem; max-width: 48ch;
+    text-align: center;
+  }
+  .cta-actions {
+    display: flex; justify-content: center;
+    gap: 1rem; flex-wrap: wrap;
+  }
+  .cta-meta {
+    margin-top: 3rem;
+    font-family: var(--mono); font-size: 0.65rem;
+    color: var(--muted); letter-spacing: 0.08em;
+  }
+
+  /* ─── Footer ────────────────────────────────────────────────── */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 3rem;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 2rem;
+  }
+  .footer-brand {
+    font-family: var(--serif); font-size: 0.95rem;
+    font-weight: 400; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--cream);
+  }
+  .footer-brand span { color: var(--gold); }
+  .footer-disclaimer {
+    max-width: 60ch; font-size: 0.68rem;
+    color: var(--muted); line-height: 1.6;
+  }
+  .footer-copy {
+    font-family: var(--mono); font-size: 0.62rem;
+    color: var(--muted); letter-spacing: 0.06em;
+    align-self: flex-end;
+  }
+
+  /* ─── Mobile ────────────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; padding: 0 1.5rem; }
+    .hero-left { border-right: none; padding: 5rem 0 2rem; }
+    .hero-right { padding: 2rem 0 4rem; }
+    .hero-stat-grid { grid-template-columns: 1fr 1fr; }
+    .hero-stat { padding: 1.5rem; }
+    .container { padding: 0 1.5rem; }
+    .problem-grid, .platform-grid, .numbers-intro,
+    .tier-cards, .signals-grid, .pricing-grid,
+    .mega-grid, .proof-logos, .econ-grid {
+      grid-template-columns: 1fr;
+    }
+    .tier-card, .signal-card, .mega-card,
+    .proof-item, .pricing-item { border-right: none; border-bottom: 1px solid var(--line); }
+    footer { padding: 2rem 1.5rem; flex-direction: column; }
+  }
+
+  /* ─── Scroll indicator ──────────────────────────────────────── */
+  .scroll-indicator {
+    position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    font-family: var(--mono); font-size: 0.58rem;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  .scroll-indicator::after {
+    content: '';
+    width: 1px; height: 3rem;
+    background: linear-gradient(to bottom, var(--muted), transparent);
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* ─── Counter animation ─────────────────────────────────────── */
+  .counter { display: inline-block; }
+</style>
+</head>
+<body>
+
+<!-- ── Nav ──────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-logo">Hilltop<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#problem">The Problem</a></li>
+    <li><a href="#platform">Platform</a></li>
+    <li><a href="#numbers">Economics</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+  </ul>
+  <a class="nav-cta" href="#cta">Get Analysis →</a>
+</nav>
+
+<!-- ── Hero ─────────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Permanent Capital Platform</div>
+    <h1>Every dollar.<br><em>Working.</em><br>Every day.</h1>
+    <p class="hero-sub">Institutional-grade treasury infrastructure for private equity and real estate sponsors at every stage — from your first deal to your fifth fund.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#cta">30-Minute Analysis →</a>
+      <a class="btn-secondary" href="#problem">The Quiet Bleed ↓</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat-grid">
+      <div class="hero-stat">
+        <div class="stat-number red"><span class="counter" data-target="600" data-prefix="$" data-suffix="B+">$600B+</span></div>
+        <div class="stat-label">Estimated idle capital across mid-market PE at any given moment</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-number red"><span class="counter" data-target="6" data-prefix="" data-suffix="%">6%</span></div>
+        <div class="stat-label">Annual real erosion on idle pool — inflation plus opportunity cost</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-number gold"><span class="counter" data-target="3.93" data-prefix="" data-suffix="%" data-decimals="2">3.93%</span></div>
+        <div class="stat-label">Blended net yield on the HMG platform (Feb 2026 rates)</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-number teal"><span class="counter" data-target="15" data-prefix="$" data-suffix="M">$15M</span></div>
+        <div class="stat-label">Annual bleed on a $1B fund program at current rates</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">Scroll</div>
+</section>
+
+<!-- ── Problem ──────────────────────────────────────────────────── -->
+<section id="problem">
+  <div class="container">
+    <div class="problem-grid">
+      <div class="reveal">
+        <div class="section-label">01 — The Quiet Bleed</div>
+        <h2>You've mastered the<br><em>hard problem.</em></h2>
+        <p style="margin-bottom:2rem;">Deploying capital into productive assets. Acquiring companies. Engineering returns over 5–10 year holding periods. What you haven't solved is the easy one: what happens to capital when it's not deployed.</p>
+        <p>Between commitment and call. Between exit and redistribution. Between Fund III and Fund IV. That capital isn't sitting still — it's bleeding.</p>
+
+        <div class="journey reveal reveal-delay-2" style="margin-top:3rem;">
+          <div class="journey-step">
+            <div class="step-num">01</div>
+            <div class="step-body">
+              <strong>Committed — Months 0–12</strong>
+              <span>LP commits $500M. 6–12 months before first call. Zero visibility. Zero yield.</span>
+              <div class="dead-zone">▶ Dead zone</div>
+            </div>
+          </div>
+          <div class="journey-step">
+            <div class="step-num">02</div>
+            <div class="step-body">
+              <strong>Called — Quarters 1–20</strong>
+              <span>~5% called per quarter. Deployment factor rarely exceeds 60% over fund life.</span>
+              <div class="dead-zone">▶ Partial dead zone</div>
+            </div>
+          </div>
+          <div class="journey-step">
+            <div class="step-num">03</div>
+            <div class="step-body">
+              <strong>Exited — Post-exit</strong>
+              <span>Cash returns to operating account. Sits for weeks/months while GP decides next step.</span>
+              <div class="dead-zone">▶ Dead zone</div>
+            </div>
+          </div>
+          <div class="journey-step">
+            <div class="step-num">04</div>
+            <div class="step-body">
+              <strong>Distributed — Inter-fund</strong>
+              <span>Capital between funds. No system to capture yield. No reinvestment pathway.</span>
+              <div class="dead-zone">▶ Dead zone</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div class="bleed-stats">
+          <div class="bleed-stat">
+            <div class="bleed-num">~40%</div>
+            <div class="bleed-desc"><strong>of committed capital is idle on average</strong> at any given point in the fund lifecycle. CFA Institute.</div>
+          </div>
+          <div class="bleed-stat">
+            <div class="bleed-num">4–6%</div>
+            <div class="bleed-desc"><strong>annual real erosion</strong> on the idle pool — inflation plus opportunity cost of capital earning 0.15% in a custodian sweep.</div>
+          </div>
+          <div class="bleed-stat">
+            <div class="bleed-num">$3.78M</div>
+            <div class="bleed-desc"><strong>annual gap on a $500M fund</strong> between what the bank pays you (0.15%) and what the bank earns on your capital (4%+).</div>
+          </div>
+          <div class="bleed-stat">
+            <div class="bleed-num" style="color:var(--muted);font-size:1.5rem;">0.15%</div>
+            <div class="bleed-desc">What a <strong>custodian sweep</strong> pays you. The bank keeps 300–400bps spread. Your LPs subsidize bank P&amp;L.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Who it's for ──────────────────────────────────────────────── -->
+<section id="audience">
+  <div class="container">
+    <div class="audience-header reveal">
+      <div class="section-label">02 — Who This Is For</div>
+      <h2>The platform serves sponsors<br>across the <em>entire lifecycle.</em></h2>
+      <p style="margin-top:1rem;">Whether you're managing a $2 billion fund platform or raising capital for your first single-asset deal, there is a version of the same problem in your world. HMG closes both gaps.</p>
+    </div>
+    <div class="tier-cards reveal reveal-delay-1">
+      <div class="tier-card">
+        <div class="tier-badge">Stage One</div>
+        <div class="tier-title">First Deal /<br>Single-Asset SPV</div>
+        <div class="tier-size">$1M–$25M vehicle</div>
+        <div class="tier-problem">No infrastructure. Investors see a bank account and a subscription agreement. You look like a solo operator, not a firm. Every competitor who has raised a second deal looks more institutional than you do right now.</div>
+        <div class="tier-solution">Charles Schwab investor portal. Real-time capital visibility. Yield on committed capital from day one. You look like a fund without the cost of being one.</div>
+        <div class="tier-gain">→ Setup in 3–4 weeks. No structural changes needed.</div>
+      </div>
+      <div class="tier-card">
+        <div class="tier-badge">Stage Two</div>
+        <div class="tier-title">Emerging Manager<br>Fund I or II</div>
+        <div class="tier-size">$25M–$250M fund</div>
+        <div class="tier-problem">Competing against established shops for LP allocations. No operational differentiator. Every dollar of overhead scrutinized. 79% of LPs declined to re-up with at least one manager last year.</div>
+        <div class="tier-solution">Institutional-grade treasury at a fraction of in-house cost. DPI improvement without closing another deal. ODD profile that punches above your weight class.</div>
+        <div class="tier-gain">→ Provisions integrated at LPA formation. 4–8 weeks.</div>
+      </div>
+      <div class="tier-card">
+        <div class="tier-badge">Stage Three</div>
+        <div class="tier-title">Established Sponsor<br>Multi-Fund Platform</div>
+        <div class="tier-size">$250M–$2B+ platform</div>
+        <div class="tier-problem">$3–$8M annual deposit spread leaking to custodian banks. LPs comparison-shopping against mega-managers who have dedicated treasury operations. DPI pressure every vintage.</div>
+        <div class="tier-solution">Full white-label platform. Yield on idle capital across all funds and vintages. LP reinvestment pathway. Fundraise differentiator in every LP meeting.</div>
+        <div class="tier-gain">→ GP operational authority. No LPA amendment. 6–8 weeks.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Platform ──────────────────────────────────────────────────── -->
+<section id="platform">
+  <div class="container">
+    <div class="platform-grid">
+      <div class="reveal">
+        <div class="section-label">03 — What We Built</div>
+        <h2>The treasury sophistication<br>of a <em>Blackstone.</em></h2>
+        <p style="margin-bottom:1.5rem;">Without hiring a single additional person. Without a fund amendment. Without changing anything about how you manage investments.</p>
+        <p>HMG is the capital infrastructure layer that sits between your fund and your bank — turning every idle dollar into working capital, branded as you.</p>
+
+        <div class="feature-list reveal reveal-delay-2">
+          <div class="feature-item">
+            <div class="feature-check"></div>
+            <div class="feature-text">
+              <strong>Sponsor-Branded Portal</strong>
+              <span>Your name, your brand, your LP experience. Charles Schwab linked platform. Full white-label, zero visible third party.</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-check"></div>
+            <div class="feature-text">
+              <strong>Institutional Portfolio</strong>
+              <span>Treasuries, agency paper, money markets. Principal-protected, same-day to T+1 liquid. Three tiers matched to your deployment timeline.</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-check"></div>
+            <div class="feature-text">
+              <strong>FDIC Optimization</strong>
+              <span>IntraFi network — $250K FDIC coverage across 3,000+ banks. Institutional deposit management, not a jar.</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-check"></div>
+            <div class="feature-text">
+              <strong>Same-Day Capital Access</strong>
+              <span>Call capital instantly for deployments. No lock-up on the liquid sleeve. Your pipeline never waits on treasury.</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-check"></div>
+            <div class="feature-text">
+              <strong>LP Reinvestment Pathway</strong>
+              <span>Seamless distribution-to-next-vehicle. Quarterly redemption windows. Turn every exit into a fundraise advantage.</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-check"></div>
+            <div class="feature-text">
+              <strong>SEC-Registered RIA Oversight</strong>
+              <span>Fiduciary standard. Institutional compliance. The ODD profile that punches above your weight class.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-3">
+        <div class="flywheel">
+          <div class="flywheel-title">The Permanent Capital Flywheel</div>
+          <div class="flywheel-steps">
+            <div class="fw-step">
+              <div class="fw-connector"></div>
+              <div class="fw-content">
+                <div class="fw-label">Capital Committed</div>
+                <div class="fw-desc">Earns yield immediately. No waiting for deployment to generate return.</div>
+              </div>
+            </div>
+            <div class="fw-step">
+              <div class="fw-connector"></div>
+              <div class="fw-content">
+                <div class="fw-label">Capital Called</div>
+                <div class="fw-desc">Same-day access for deployments. Zero disruption to investment operations.</div>
+              </div>
+            </div>
+            <div class="fw-step">
+              <div class="fw-connector"></div>
+              <div class="fw-content">
+                <div class="fw-label">Capital Deployed</div>
+                <div class="fw-desc">Working in portfolio company. Remaining idle balance continues earning.</div>
+              </div>
+            </div>
+            <div class="fw-step">
+              <div class="fw-connector"></div>
+              <div class="fw-content">
+                <div class="fw-label">Capital Returned</div>
+                <div class="fw-desc">Back to yield automatically. No dead zone between exit and next event.</div>
+              </div>
+            </div>
+            <div class="fw-step fw-last">
+              <div class="fw-connector"></div>
+              <div class="fw-content">
+                <div class="fw-label">Capital Reinvested</div>
+                <div class="fw-desc">Into next vehicle or redeemed. The fundraise advantage is built into the distribution.</div>
+              </div>
+            </div>
+          </div>
+          <div class="flywheel-arrow">◀ No dead zones. Every dollar productive every day. ▶</div>
+        </div>
+
+        <div style="margin-top:2rem;padding:2rem;border:1px solid var(--line);">
+          <div class="flywheel-title">This is not alpha. This is arithmetic.</div>
+          <p style="font-size:0.85rem;color:var(--muted);margin:0;">Risk-free income on capital LPs already committed. Based on 1Y Treasury yield of 4.5%. The yield improvement is not a bet — it's the difference between a system and the absence of one.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Numbers ───────────────────────────────────────────────────── -->
+<section id="numbers">
+  <div class="container">
+    <div class="numbers-intro">
+      <div class="reveal">
+        <div class="section-label">04 — The Economics</div>
+        <h2>The math at<br><em>every scale.</em></h2>
+        <p>At every scale from $10M to $1B, the yield improvement is multiples of the fee. The fees are the cost of the infrastructure. The yield improvement is the return on it.</p>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <p style="font-size:0.82rem;color:var(--muted);border-left:2px solid var(--gold);padding-left:1.5rem;line-height:1.8;">"In a market where 79% of LPs declined at least one re-up, walking into your LP meeting and saying 'every dollar of idle capital is generating yield from day one' is worth more than your last deal's carry."</p>
+      </div>
+    </div>
+
+    <!-- Yield allocation table -->
+    <div class="reveal">
+      <div class="section-label" style="margin-bottom:1rem;">Portfolio Construction</div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Liquidity Window</th>
+            <th>Instruments</th>
+            <th>Yield</th>
+            <th>Allocation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Today (same-day)</td>
+            <td>Gov't money market, FDIC sweep via IntraFi</td>
+            <td class="yield-col">3.70%</td>
+            <td class="alloc-col">35%</td>
+          </tr>
+          <tr>
+            <td>1–6 months</td>
+            <td>T-bill ladder (1–3 month), agency discount notes</td>
+            <td class="yield-col">3.80%</td>
+            <td class="alloc-col">35%</td>
+          </tr>
+          <tr>
+            <td>3–12+ months</td>
+            <td>Ultrashort bond ETFs, short investment-grade corporates</td>
+            <td class="yield-col">4.35%</td>
+            <td class="alloc-col">30%</td>
+          </tr>
+          <tr class="total-row">
+            <td>Blended Portfolio</td>
+            <td>All principal-protected or investment-grade, T+0 to T+1 liquid</td>
+            <td>~3.93%</td>
+            <td>100%</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.7rem;color:var(--muted);margin-top:0.75rem;">Yields as of February 2026 (Fed funds 3.50–3.75%). Every instrument is principal-protected or investment-grade with same-day to T+1 liquidity.</p>
+    </div>
+
+    <!-- Net economics examples -->
+    <div class="reveal" style="margin-top:5rem;">
+      <div class="section-label" style="margin-bottom:1.5rem;">Net Economics: Two Examples</div>
+      <div class="econ-grid">
+        <div class="econ-col">
+          <div class="econ-head">Example: $500M Fund III</div>
+          <div class="econ-line">
+            <span class="label">Idle capital on platform</span>
+            <span class="value">~$100M</span>
+          </div>
+          <div class="econ-line">
+            <span class="label">Gross yield at ~3.93%</span>
+            <span class="value">$3.93M/yr</span>
+          </div>
+          <div class="econ-line fee">
+            <span class="label">Asset management fee (50bps)</span>
+            <span class="value">–$500K/yr</span>
+          </div>
+          <div class="econ-line">
+            <span class="label">Net yield to fund</span>
+            <span class="value">~$3.43M/yr</span>
+          </div>
+          <div class="econ-line fee">
+            <span class="label">Throughput fee (10bps, one-time)</span>
+            <span class="value">$500K once</span>
+          </div>
+          <div class="econ-line">
+            <span class="label">vs. custodian sweep</span>
+            <span class="value">$150K/yr</span>
+          </div>
+          <div class="econ-line gain">
+            <span class="label">Net annual advantage</span>
+            <span class="value">+$3.28M</span>
+          </div>
+        </div>
+        <div class="econ-col">
+          <div class="econ-head">Example: $10M SPV</div>
+          <div class="econ-line">
+            <span class="label">Idle capital on platform</span>
+            <span class="value">~$2M</span>
+          </div>
+          <div class="econ-line">
+            <span class="label">Gross yield at ~3.93%</span>
+            <span class="value">$78.6K/yr</span>
+          </div>
+          <div class="econ-line fee">
+            <span class="label">Asset management fee (50bps)</span>
+            <span class="value">–$10K/yr</span>
+          </div>
+          <div class="econ-line">
+            <span class="label">Net yield to SPV</span>
+            <span class="value">~$68.6K/yr</span>
+          </div>
+          <div class="econ-line fee">
+            <span class="label">Throughput fee (10bps, one-time)</span>
+            <span class="value">$10K once</span>
+          </div>
+          <div class="econ-line">
+            <span class="label">vs. custodian sweep</span>
+            <span class="value">$3K/yr</span>
+          </div>
+          <div class="econ-line gain">
+            <span class="label">Net annual advantage</span>
+            <span class="value">+$55.6K + portal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full scale table -->
+    <div class="reveal" style="margin-top:3rem; overflow-x:auto;">
+      <div class="section-label" style="margin-bottom:1rem;">Net Economics Across All Scales</div>
+      <table class="econ-table">
+        <thead>
+          <tr>
+            <th style="text-align:left;">Vehicle</th>
+            <th>Idle Capital</th>
+            <th>Sweep Yield</th>
+            <th>Gross Yield</th>
+            <th>HMG Fees</th>
+            <th>Net Yield</th>
+            <th>Net Gain</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>$10M SPV</td><td>$2M</td><td>$3K</td><td>$79K</td><td>–$20K</td><td>$59K/yr</td><td class="net-gain">+$56K</td></tr>
+          <tr><td>$25M Fund I</td><td>$5M</td><td>$7.5K</td><td>$197K</td><td>–$28K</td><td>$169K/yr</td><td class="net-gain">+$161K</td></tr>
+          <tr><td>$100M Fund II</td><td>$20M</td><td>$30K</td><td>$786K</td><td>–$110K</td><td>$676K/yr</td><td class="net-gain">+$646K</td></tr>
+          <tr><td>$250M Fund III</td><td>$50M</td><td>$75K</td><td>$1.97M</td><td>–$275K</td><td>$1.69M/yr</td><td class="net-gain">+$1.62M</td></tr>
+          <tr><td>$500M Fund IV</td><td>$100M</td><td>$150K</td><td>$3.93M</td><td>–$550K</td><td>$3.38M/yr</td><td class="net-gain">+$3.23M</td></tr>
+          <tr><td>$1B Platform</td><td>$200M</td><td>$300K</td><td>$7.86M</td><td>–$1.1M</td><td>$6.76M/yr</td><td class="net-gain">+$6.46M</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.68rem;color:var(--muted);margin-top:0.75rem;">Idle capital assumed at 20% of vehicle size. HMG fees include 50bps annual asset management + 10bps throughput fee (annualized over 3 years). Simple annual income, no compounding.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Why Now ───────────────────────────────────────────────────── -->
+<section id="why-now">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">05 — Why Now</div>
+      <h2>Three signals the<br><em>transformation has begun.</em></h2>
+      <p>The industry is converging on a single thesis: every dollar should work all the time. The mid-market hasn't caught up. That's the window.</p>
+    </div>
+
+    <div class="signals-grid reveal reveal-delay-1">
+      <div class="signal-card">
+        <div class="signal-num">$3.5T</div>
+        <div class="signal-title">The Alliance</div>
+        <div class="signal-body">Blackstone + Wellington + Vanguard announced April 2025. Integrated solutions across public and private markets. Interval fund filed for quarterly redemptions. The mega-managers are building the infrastructure. Everyone below them is falling behind.</div>
+        <div class="signal-source">April 2025 announcement</div>
+      </div>
+      <div class="signal-card">
+        <div class="signal-num">$4.1T</div>
+        <div class="signal-title">Semi-Liquid Explosion</div>
+        <div class="signal-body">$200B (2020) → $700B (2024) → $4.1T projected by 2030. KKR K-Series grew from $3B to $14B in one year. These structures require institutional treasury by design. The infrastructure gap is becoming a structural disadvantage.</div>
+        <div class="signal-source">Industry data 2024</div>
+      </div>
+      <div class="signal-card">
+        <div class="signal-num">88%</div>
+        <div class="signal-title">LP Consolidation</div>
+        <div class="signal-body">79% of LPs declined to re-up with at least one manager last year. 88% expect to do it again. Distribution yield at an 11% decade low. LPs are benchmarking you against Blackstone. The question is whether you close that gap before they move on.</div>
+        <div class="signal-source">LP survey data 2025</div>
+      </div>
+    </div>
+
+    <div style="margin-top:5rem;" class="reveal">
+      <div class="section-label" style="margin-bottom:1.5rem;">What The Mega-Managers Already Did</div>
+      <div class="mega-grid">
+        <div class="mega-card">
+          <div class="mega-firm">Blackstone</div>
+          <div class="mega-headline">$11.1B in cash &amp; liquid investments</div>
+          <div class="mega-body">Dedicated Global Treasury, SMD on 4 internal committees. Institutional-grade portfolios of credit, governments, managed duration. Treasury is not a cost center — it's infrastructure.</div>
+        </div>
+        <div class="mega-card">
+          <div class="mega-firm">KKR</div>
+          <div class="mega-headline">Global Atlantic as structural advantage</div>
+          <div class="mega-body">Insurance arm provides permanent capital as a structural treasury advantage. Capital-heavy balance sheet model turns every dollar into working capital from the moment it's committed.</div>
+        </div>
+        <div class="mega-card">
+          <div class="mega-firm">Apollo</div>
+          <div class="mega-headline">Treasury as a profit center</div>
+          <div class="mega-body">Proprietary lending platforms manufacture the investment-grade instruments that go into their treasury portfolio. They don't treat treasury as an afterthought. It's a business unit.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Proof ─────────────────────────────────────────────────────── -->
+<section id="proof">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">06 — Model Validation</div>
+      <h2>Proven economics.<br><em>Proven model.</em></h2>
+      <p>The HMG platform is built on the same model economics that power the largest institutional cash management businesses in the world.</p>
+    </div>
+    <div class="proof-logos reveal reveal-delay-1">
+      <div class="proof-item">
+        <div class="proof-firm">IntraFi Network</div>
+        <div class="proof-desc">The FDIC optimization infrastructure behind the HMG platform. Distributes deposits across 3,000+ banks. The institutional standard for deposit management.</div>
+        <div class="proof-stats">
+          <div class="proof-stat">→ $525M revenue</div>
+          <div class="proof-stat">→ $415M profit (80% margins)</div>
+          <div class="proof-stat">→ Owned by Warburg Pincus &amp; Blackstone</div>
+        </div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-firm">Flourish Cash (MassMutual)</div>
+        <div class="proof-desc">Similar platform economics model serving registered investment advisors. Demonstrates the scalability of the institutional cash management model at the RIA level.</div>
+        <div class="proof-stats">
+          <div class="proof-stat">→ $3.5B managed</div>
+          <div class="proof-stat">→ 1,000+ RIA firms</div>
+          <div class="proof-stat">→ MassMutual-backed</div>
+        </div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-firm">Treasure Financial</div>
+        <div class="proof-desc">Corporate treasury management using the same underlying model — institutional instruments, active management, principal protection. Validates the fee structure and yield delivery at scale.</div>
+        <div class="proof-stats">
+          <div class="proof-stat">→ Active treasury management</div>
+          <div class="proof-stat">→ Same instrument universe</div>
+          <div class="proof-stat">→ Net interest margin model</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Pricing ───────────────────────────────────────────────────── -->
+<section id="pricing">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">07 — Pricing</div>
+      <h2>Two fees.<br><em>Both transparent.</em></h2>
+      <p>Both designed to align HMG's economics with the value the platform delivers. Net positive from day one.</p>
+    </div>
+    <div class="pricing-grid reveal reveal-delay-1">
+      <div class="pricing-item">
+        <div class="pricing-rate">10 bps</div>
+        <div class="pricing-type">Capital Throughput Fee — One-Time</div>
+        <div class="pricing-desc">Charged once on every dollar that flows through the platform — committed capital, distributions, return of capital, return on capital. Each dollar is assessed once at the point of entry or receipt. Not recurring. Not an annual drag.</div>
+        <div class="pricing-note">→ $500M fund: $500K one-time</div>
+        <div class="pricing-note">→ $10M SPV: $10K one-time</div>
+      </div>
+      <div class="pricing-item">
+        <div class="pricing-rate">50 bps</div>
+        <div class="pricing-type">Asset Management Fee — Annual</div>
+        <div class="pricing-desc">Charged annually on all capital actively invested on the platform. Covers portfolio management, FDIC optimization, reporting, portal infrastructure, and SEC-registered RIA oversight. Assessed on average invested balance, billed quarterly.</div>
+        <div class="pricing-note">→ Consistent with institutional cash management</div>
+        <div class="pricing-note">→ Fiduciary standard at every dollar</div>
+      </div>
+    </div>
+    <div class="reveal" style="margin-top:2rem; padding:2rem; border:1px solid var(--line); background:rgba(196,153,58,0.04);">
+      <p style="font-size:0.88rem; color:var(--cream); max-width:none; text-align:center; line-height:1.8;">After both fees, the platform delivers a net yield of approximately <strong style="color:var(--teal);">3.33–3.43%</strong> on invested capital — compared to <strong style="color:var(--red);">0.15%</strong> on a custodian sweep. The net annual advantage for a $500M fund is approximately <strong style="color:var(--teal);">$3.2–$3.3 million.</strong> The fees are the cost of the infrastructure. The yield improvement is multiples of that cost.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────────────── -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="section-label" style="justify-content:center;">Get Started</div>
+      <h2>See exactly what your vehicle<br>is leaving <em>on the table.</em></h2>
+      <p>Whether it's a $10M SPV or a $500M fund, we'll build a custom analysis using your actual structure, deployment timeline, and capital flows. Takes 30 minutes.</p>
+      <div class="cta-actions">
+        <a class="btn-primary" href="https://calendly.com/hilltopmanagementgroup/30min" target="_blank">Schedule 30-Minute Analysis →</a>
+      </div>
+      <div class="cta-meta">
+        Dan &nbsp;|&nbsp; Managing Director &nbsp;|&nbsp; Hilltop Management Group
+      </div>
+
+      <div style="margin-top:5rem; display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid var(--line); text-align:left;" class="reveal reveal-delay-2">
+        <div style="padding:2rem; border-right:1px solid var(--line);">
+          <div style="font-family:var(--mono);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Single-Asset / SPV</div>
+          <div style="font-size:0.82rem;color:var(--muted);line-height:1.65;">Platform wraps around your SPV with portal and capital management. No structural changes needed. 3–4 week setup.</div>
+        </div>
+        <div style="padding:2rem; border-right:1px solid var(--line);">
+          <div style="font-family:var(--mono);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Raising a Fund</div>
+          <div style="font-size:0.82rem;color:var(--muted);line-height:1.65;">Capital management provisions integrated into LPA at drafting. 4–8 weeks of parallel work with your counsel. Part of the fund from day one.</div>
+        </div>
+        <div style="padding:2rem;">
+          <div style="font-family:var(--mono);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Fund in the Ground</div>
+          <div style="font-size:0.82rem;color:var(--muted);line-height:1.65;">Structured under GP's existing operational authority over fund cash management. No LPA amendment required. 6–8 week setup.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ────────────────────────────────────────────────────── -->
+<footer>
+  <div>
+    <div class="footer-brand">Hilltop<span>.</span> Management Group</div>
+    <div style="font-family:var(--mono);font-size:0.6rem;color:var(--muted);margin-top:0.5rem;letter-spacing:0.08em;">Permanent Capital Platform</div>
+  </div>
+  <div class="footer-disclaimer">
+    This document is for informational purposes only and does not constitute an offer to sell or solicitation to buy any securities. Illustrative projections are based on prevailing U.S. Treasury, agency, and investment-grade corporate rates as of February 2026. Ultrashort bond ETFs carry floating NAV risk; historical max drawdown on JPST is approximately 0.6%. Actual results vary by vehicle structure, deployment pace, investment restrictions, and market conditions. Not investment advice.
+  </div>
+  <div class="footer-copy">© 2026 Hilltop Management Group</div>
+</footer>
+
+<script>
+  // ── Scroll reveal ─────────────────────────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── Counter animation ─────────────────────────────────────────
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const decimals = parseInt(el.dataset.decimals || '0');
+    const duration = 1800;
+    const start = performance.now();
+
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = target * eased;
+      el.textContent = prefix + current.toFixed(decimals) + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCounter(e.target);
+        counterObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+  // ── Nav active state ──────────────────────────────────────────
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 200) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current
+        ? 'var(--cream)' : '';
+    });
+  });
+
+  // ── Smooth hero entrance ──────────────────────────────────────
+  document.querySelector('.hero-left').style.opacity = '0';
+  document.querySelector('.hero-left').style.transform = 'translateX(-20px)';
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      document.querySelector('.hero-left').style.transition = 'all 0.8s ease';
+      document.querySelector('.hero-left').style.opacity = '1';
+      document.querySelector('.hero-left').style.transform = 'translateX(0)';
+    }, 100);
+  });
+</script>
+</body>
+</html>
