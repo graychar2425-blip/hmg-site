@@ -245,30 +245,27 @@
 
   /* ─── Framework ─────────────────────────────────────────────── */
   #framework { background: var(--plaster); }
-  .framework-intro { max-width: 680px; margin-bottom: 5rem; }
+  .framework-intro { max-width: 680px; margin-bottom: 4.5rem; }
   .framework-intro p { margin-bottom: 0; }
-  .framework-body {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 5rem; align-items: center;
+  .fw-svg-wrap { display: flex; justify-content: center; margin-bottom: 4rem; }
+  .fw-svg { width: 100%; max-width: 700px; display: block; }
+  .fw-cards {
+    display: grid; grid-template-columns: repeat(4,1fr);
+    gap: 0; border: 1px solid var(--line);
+    border-radius: 20px; overflow: hidden;
   }
-  .fw-svg { width: 100%; max-width: 420px; display: block; margin: 0 auto; }
-  .fw-steps-col { display: flex; flex-direction: column; gap: 0; }
-  .fw-step {
-    display: grid; grid-template-columns: 3rem 1fr;
-    gap: 1.25rem; padding: 1.75rem 0;
-    border-bottom: 1px solid var(--line); align-items: start;
+  .fw-card { padding: 2.5rem 2rem; border-right: 1px solid var(--line); }
+  .fw-card:last-child { border-right: none; }
+  .fw-card-num {
+    font-size: 0.65rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--bronze);
+    font-weight: 500; margin-bottom: 0.75rem;
   }
-  .fw-step:first-child { border-top: 1px solid var(--line); }
-  .fw-step-num {
-    font-family: var(--serif); font-size: 1.8rem; font-weight: 300;
-    color: var(--limestone); line-height: 1;
+  .fw-card h3 {
+    font-family: var(--serif); font-size: 1.2rem; font-weight: 400;
+    color: var(--charcoal); margin-bottom: 0.6rem;
   }
-  .fw-step strong {
-    display: block; font-family: var(--sans);
-    font-weight: 500; font-size: 0.88rem;
-    color: var(--charcoal); margin-bottom: 0.35rem;
-  }
-  .fw-step span { font-size: 0.9rem; color: var(--charcoal-lt); line-height: 1.75; }
+  .fw-card p { font-size: 0.9rem; color: var(--charcoal-lt); max-width: none; line-height: 1.75; }
 
   /* ─── Why It Matters ────────────────────────────────────────── */
   #matters {
@@ -583,12 +580,14 @@
     to   { transform: rotate(360deg); }
   }
   .fw-spin {
-    transform-origin: 300px 300px;
+    transform-origin: 400px 350px;
     animation: fw-spin 22s linear infinite;
   }
   @media (max-width: 900px) {
-    .framework-body { grid-template-columns: 1fr; gap: 3rem; }
-    .fw-svg { max-width: 300px; }
+    .fw-cards { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .fw-cards { grid-template-columns: 1fr; }
   }
 
   /* ─── Stat strip ─────────────────────────────────────────────── */
@@ -832,89 +831,89 @@
   <div class="container">
     <div class="framework-intro reveal">
       <div class="eyebrow">The Framework</div>
-      <h2>A disciplined treasury framework built on trusted custodial infrastructure.</h2>
-      <p>We don't replace your investment strategy. We build the structured layer around it — the one that keeps capital working across the full lifecycle, not just during deployment.</p>
+      <h2>The capital lifecycle runs in a continuous loop. Every stage can be managed.</h2>
+      <p>Most sponsors capture yield only during active deployment. HMG builds the structured layer that works across every phase — commitment window, deployment cycle, exit window, and the gap between vehicles.</p>
     </div>
-    <div class="framework-body">
-      <!-- Flywheel SVG: 600×600 viewBox, labels outside nodes, spinning arcs -->
-      <div class="reveal">
-        <svg class="fw-svg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-          <!-- Outer decorative ring -->
-          <circle cx="300" cy="300" r="215" fill="none" stroke="rgba(184,170,154,0.1)" stroke-width="1"/>
-          <!-- Static guide ring -->
-          <circle cx="300" cy="300" r="165" fill="none" stroke="rgba(184,170,154,0.3)" stroke-width="1"/>
-          <!-- Spinning arc group — rotates around center 300,300 -->
-          <g class="fw-spin">
-            <path d="M 300 135 A 165 165 0 0 1 465 300" fill="none" stroke="#A07C5B" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
-            <path d="M 465 300 A 165 165 0 0 1 300 465" fill="none" stroke="#C8A57A" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
-            <path d="M 300 465 A 165 165 0 0 1 135 300" fill="none" stroke="#DCCDBB" stroke-width="2.5" stroke-linecap="round" opacity="0.65"/>
-            <path d="M 135 300 A 165 165 0 0 1 300 135" fill="none" stroke="#B8AA9A" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
-            <!-- Directional dots at arc midpoints (45°, 135°, 225°, 315°) -->
-            <circle cx="417" cy="183" r="5" fill="#A07C5B" opacity="0.8"/>
-            <circle cx="417" cy="417" r="5" fill="#C8A57A" opacity="0.65"/>
-            <circle cx="183" cy="417" r="4.5" fill="#DCCDBB" opacity="0.6"/>
-            <circle cx="183" cy="183" r="4" fill="#B8AA9A" opacity="0.5"/>
-          </g>
-          <!-- Static node circles at cardinal points (render over arcs) -->
-          <circle cx="300" cy="135" r="22" fill="#F5F1EA" stroke="rgba(160,124,91,0.4)" stroke-width="1.5"/>
-          <circle cx="465" cy="300" r="22" fill="#F5F1EA" stroke="rgba(160,124,91,0.4)" stroke-width="1.5"/>
-          <circle cx="300" cy="465" r="22" fill="#F5F1EA" stroke="rgba(160,124,91,0.4)" stroke-width="1.5"/>
-          <circle cx="135" cy="300" r="22" fill="#F5F1EA" stroke="rgba(160,124,91,0.4)" stroke-width="1.5"/>
-          <!-- Labels positioned OUTSIDE the node circles — no clipping possible -->
-          <!-- Top node labels (above circle, top edge at y=113) -->
-          <text x="300" y="74" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.5" font-weight="600" letter-spacing="1.5" fill="#A07C5B">01</text>
-          <text x="300" y="90" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#2F2A26">Commit</text>
-          <text x="300" y="106" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#B8AA9A">to Call</text>
-          <!-- Right node labels (right of circle, right edge at x=487) -->
-          <text x="496" y="292" text-anchor="start" font-family="Inter, sans-serif" font-size="8.5" font-weight="600" letter-spacing="1.5" fill="#A07C5B">02</text>
-          <text x="496" y="308" text-anchor="start" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#2F2A26">Active</text>
-          <text x="496" y="323" text-anchor="start" font-family="Inter, sans-serif" font-size="11" fill="#B8AA9A">Deploy</text>
-          <!-- Bottom node labels (below circle, bottom edge at y=487) -->
-          <text x="300" y="500" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.5" font-weight="600" letter-spacing="1.5" fill="#A07C5B">03</text>
-          <text x="300" y="516" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#2F2A26">Exit &amp;</text>
-          <text x="300" y="531" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#B8AA9A">Redeploy</text>
-          <!-- Left node labels (left of circle, left edge at x=113) -->
-          <text x="104" y="292" text-anchor="end" font-family="Inter, sans-serif" font-size="8.5" font-weight="600" letter-spacing="1.5" fill="#A07C5B">04</text>
-          <text x="104" y="308" text-anchor="end" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#2F2A26">Between</text>
-          <text x="104" y="323" text-anchor="end" font-family="Inter, sans-serif" font-size="11" fill="#B8AA9A">Vehicles</text>
-          <!-- Hub -->
-          <circle cx="300" cy="300" r="74" fill="#EEE7DD" stroke="rgba(184,170,154,0.45)" stroke-width="1"/>
-          <circle cx="300" cy="300" r="58" fill="none" stroke="rgba(184,170,154,0.2)" stroke-width="1"/>
-          <text x="300" y="291" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="17" font-weight="300" fill="#2F2A26">Capital</text>
-          <text x="300" y="310" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="17" font-weight="300" fill="#2F2A26">Flywheel</text>
-          <text x="300" y="327" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" font-weight="500" letter-spacing="2" fill="#A07C5B">HMG</text>
-        </svg>
+    <!-- Full-width flywheel SVG: 800×700 viewBox, center 400,350, ring radius 220 -->
+    <div class="fw-svg-wrap reveal">
+      <svg class="fw-svg" viewBox="0 0 800 700" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer decorative ring -->
+        <circle cx="400" cy="350" r="265" fill="none" stroke="rgba(184,170,154,0.07)" stroke-width="1"/>
+        <!-- Static guide ring -->
+        <circle cx="400" cy="350" r="220" fill="none" stroke="rgba(184,170,154,0.22)" stroke-width="1"/>
+        <!-- Inner ring -->
+        <circle cx="400" cy="350" r="105" fill="none" stroke="rgba(184,170,154,0.14)" stroke-width="1"/>
+        <!-- Spinning arc group — rotates around center 400,350 -->
+        <g class="fw-spin">
+          <!-- Top (400,130) → Right (620,350): first quadrant, darkest/strongest -->
+          <path d="M 400 130 A 220 220 0 0 1 620 350" fill="none" stroke="#A07C5B" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+          <!-- Right (620,350) → Bottom (400,570) -->
+          <path d="M 620 350 A 220 220 0 0 1 400 570" fill="none" stroke="#C8A57A" stroke-width="4.5" stroke-linecap="round" opacity="0.75"/>
+          <!-- Bottom (400,570) → Left (180,350) -->
+          <path d="M 400 570 A 220 220 0 0 1 180 350" fill="none" stroke="#DCCDBB" stroke-width="4" stroke-linecap="round" opacity="0.62"/>
+          <!-- Left (180,350) → Top (400,130) -->
+          <path d="M 180 350 A 220 220 0 0 1 400 130" fill="none" stroke="#B8AA9A" stroke-width="3" stroke-linecap="round" opacity="0.48"/>
+          <!-- Directional indicator dots at arc midpoints -->
+          <!-- 45° from top (NE): (400+220×sin45°, 350−220×cos45°) = (556,194) -->
+          <circle cx="556" cy="194" r="7" fill="#A07C5B" opacity="0.85"/>
+          <!-- 135° (SE): (556,506) -->
+          <circle cx="556" cy="506" r="7" fill="#C8A57A" opacity="0.7"/>
+          <!-- 225° (SW): (244,506) -->
+          <circle cx="244" cy="506" r="6" fill="#DCCDBB" opacity="0.58"/>
+          <!-- 315° (NW): (244,194) -->
+          <circle cx="244" cy="194" r="5.5" fill="#B8AA9A" opacity="0.46"/>
+        </g>
+        <!-- Static node circles at cardinal points — render over arcs -->
+        <circle cx="400" cy="130" r="70" fill="#F5F1EA" stroke="rgba(160,124,91,0.38)" stroke-width="2"/>
+        <circle cx="620" cy="350" r="70" fill="#F5F1EA" stroke="rgba(160,124,91,0.38)" stroke-width="2"/>
+        <circle cx="400" cy="570" r="70" fill="#F5F1EA" stroke="rgba(160,124,91,0.38)" stroke-width="2"/>
+        <circle cx="180" cy="350" r="70" fill="#F5F1EA" stroke="rgba(160,124,91,0.38)" stroke-width="2"/>
+        <!-- Node labels — inside circles, 3 lines centered on circle midpoint -->
+        <!-- Top node (400,130): 01 COMMIT WINDOW -->
+        <text x="400" y="116" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="1.8" fill="#A07C5B">01</text>
+        <text x="400" y="134" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#2F2A26">COMMIT</text>
+        <text x="400" y="151" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#7A6E65">WINDOW</text>
+        <!-- Right node (620,350): 02 DEPLOY CYCLE -->
+        <text x="620" y="336" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="1.8" fill="#A07C5B">02</text>
+        <text x="620" y="354" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#2F2A26">DEPLOY</text>
+        <text x="620" y="371" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#7A6E65">CYCLE</text>
+        <!-- Bottom node (400,570): 03 EXIT WINDOW -->
+        <text x="400" y="556" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="1.8" fill="#A07C5B">03</text>
+        <text x="400" y="574" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#2F2A26">EXIT</text>
+        <text x="400" y="591" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#7A6E65">WINDOW</text>
+        <!-- Left node (180,350): 04 BETWEEN VEHICLES -->
+        <text x="180" y="336" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="1.8" fill="#A07C5B">04</text>
+        <text x="180" y="354" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#2F2A26">BETWEEN</text>
+        <text x="180" y="371" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#7A6E65">VEHICLES</text>
+        <!-- Hub circle -->
+        <circle cx="400" cy="350" r="92" fill="#EEE7DD" stroke="rgba(184,170,154,0.42)" stroke-width="1.5"/>
+        <circle cx="400" cy="350" r="74" fill="none" stroke="rgba(184,170,154,0.18)" stroke-width="1"/>
+        <text x="400" y="337" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="21" font-weight="300" fill="#2F2A26">Capital</text>
+        <text x="400" y="360" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="21" font-weight="300" fill="#2F2A26">Flywheel</text>
+        <text x="400" y="379" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="600" letter-spacing="2.5" fill="#A07C5B">HMG</text>
+      </svg>
+    </div>
+    <!-- 4 lifecycle stage cards below flywheel -->
+    <div class="fw-cards reveal reveal-delay-2">
+      <div class="fw-card">
+        <div class="fw-card-num">01 — Commit Window</div>
+        <h3>Capital Called, Not Yet Deployed</h3>
+        <p>Capital is committed but uncalled — typically 12–24 months idle per cycle. HMG deploys into short-duration T-bills and FDIC-insured instruments, returning yield without lock-up.</p>
       </div>
-      <!-- Step descriptions aligned with flywheel stages -->
-      <div class="fw-steps-col reveal reveal-delay-2">
-        <div class="fw-step">
-          <div class="fw-step-num">01</div>
-          <div>
-            <strong>Custody with Charles Schwab</strong>
-            <span>Assets held at Schwab's institutional platform. Industry-standard infrastructure. Full visibility. No exotic structures.</span>
-          </div>
-        </div>
-        <div class="fw-step">
-          <div class="fw-step-num">02</div>
-          <div>
-            <strong>Capital Remains Visible and Liquid</strong>
-            <span>Daily liquidity maintained throughout. Your capital is accessible when you need it — structured, not locked.</span>
-          </div>
-        </div>
-        <div class="fw-step">
-          <div class="fw-step-num">03</div>
-          <div>
-            <strong>Sponsors Maintain Control</strong>
-            <span>You retain full authority over capital decisions. We provide the framework and the discipline — you direct the capital.</span>
-          </div>
-        </div>
-        <div class="fw-step">
-          <div class="fw-step-num">04</div>
-          <div>
-            <strong>Idle Periods Become Productive</strong>
-            <span>Every stage between deployment — commitment window, exit gap, between-vehicle period — becomes a structured opportunity.</span>
-          </div>
-        </div>
+      <div class="fw-card">
+        <div class="fw-card-num">02 — Deploy Cycle</div>
+        <h3>Active Capital Management</h3>
+        <p>As capital is called, HMG ladders maturities to match your deployment timing. Uncalled portions stay liquid and earning — not sitting in a sweep account.</p>
+      </div>
+      <div class="fw-card">
+        <div class="fw-card-num">03 — Exit Window</div>
+        <h3>Distributions in Transit</h3>
+        <p>Post-exit distributions accumulate before reinvestment decisions — often 6–18 months. HMG captures yield on every dollar in the gap rather than letting it sit idle.</p>
+      </div>
+      <div class="fw-card">
+        <div class="fw-card-num">04 — Between Vehicles</div>
+        <h3>Fund-to-Fund Gap</h3>
+        <p>The period between fund closings and new vehicle formation. Capital needs a structured, liquid home. HMG provides the infrastructure while you prepare the next vehicle.</p>
       </div>
     </div>
   </div>
