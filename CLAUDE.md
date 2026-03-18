@@ -7,7 +7,7 @@ The marketing website for **Hilltop Management Group (HMG)** — a Milwaukee-bas
 Danny Fink — founder of HMG. He directs changes conversationally; Claude Code implements them.
 
 ## Deploy pipeline
-- **Repo:** `github.com/graychar2425-blip/hilltopmanagementgroup-site`
+- **Repo:** `github.com/graychar2425-blip/hmg-site`
 - **Auto-deploy:** Push to `main` → GitHub Actions → `npx wrangler pages deploy` → Cloudflare Pages
 - **Live URL:** `https://www.hilltopmanagementgroup.com`
 - **Preview URL:** `https://hilltopmanagementgroup.pages.dev`
