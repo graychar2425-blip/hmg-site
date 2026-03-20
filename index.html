@@ -384,6 +384,7 @@
       font-weight: 300;
       max-width: 640px;
     }
+    .who-grid { display: flex; flex-direction: column; gap: 2px; }
     .who-cols {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -393,6 +394,60 @@
       padding: 2.5rem 2rem;
       border-top: 1px solid var(--gold);
       background: var(--white);
+    }
+    .who-col--featured {
+      background: var(--cream);
+      border-top: 3px solid var(--gold);
+      padding: 3rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    @media (max-width: 680px) {
+      .who-col--featured { grid-template-columns: 1fr; gap: 1.5rem; }
+      .who-right { border-left: none !important; padding-left: 0 !important; border-top: 1px solid rgba(197,164,126,0.3); padding-top: 1.5rem !important; }
+    }
+    .who-col--featured .who-col-title { font-size: 2.2rem; }
+    .who-col-badge {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 3px 10px;
+      margin-bottom: 1.25rem;
+    }
+    .who-right {
+      border-left: 1px solid rgba(197,164,126,0.3);
+      padding-left: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .who-col-yield {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 2rem;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+    .who-col--featured .who-col-yield { font-size: 2.8rem; }
+    .who-col-yield-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 1.25rem;
+    }
+    .who-col-impl {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--gray);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 1.5rem;
     }
     .who-col-num {
       font-size: 0.6rem;
@@ -420,7 +475,7 @@
       font-size: 0.85rem;
       color: #555;
       padding: 0.35rem 0;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #e8e3d9;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -714,41 +769,77 @@
   <div class="container">
     <div class="label fade-up">Who We Serve</div>
     <div class="gold-rule left fade-up delay-1"></div>
-    <h2 class="who-headline fade-up delay-1">Built for the operators running serious capital.</h2>
-    <div class="who-cols">
-      <div class="who-col fade-up delay-1">
-        <div class="who-col-num">01</div>
-        <div class="who-col-title">PE Sponsors</div>
-        <div class="who-col-sub">$200M – $2B AUM</div>
-        <p class="who-col-desc">Established buyout and growth equity funds with dry powder, fund reserves, and recycle capital requiring institutional-grade cash management between deployment cycles.</p>
-        <ul>
-          <li>Uncalled capital management</li>
-          <li>Distribution float optimization</li>
-          <li>GP co-invest reserves</li>
-        </ul>
+    <h2 class="who-headline fade-up delay-1">Built for every sponsor who needs institutional infrastructure.</h2>
+    <div class="who-grid">
+
+      <!-- FEATURED: First-Time Sponsors & SPVs -->
+      <div class="who-col who-col--featured fade-up delay-1">
+        <div class="who-left">
+          <div class="who-col-badge">Most Underserved</div>
+          <div class="who-col-num">01</div>
+          <div class="who-col-title">First-Time Sponsors &amp; SPVs</div>
+          <div class="who-col-sub">$10M – $100M · Single-Asset &amp; First SPV</div>
+          <p class="who-col-desc">You don't need a fund to look institutional. Whether you're syndicating a single asset, raising a first SPV, or managing capital for a small group of investors — the same idle capital problem exists at your scale. Your investors see a branded Charles Schwab portal with institutional reporting, not a spreadsheet in a shared folder.</p>
+          <ul>
+            <li>White-label Schwab portal — institutional look on day one</li>
+            <li>Same credibility as a $1B fund, at $10M scale</li>
+            <li>Idle capital working from first close</li>
+          </ul>
+          <div class="who-col-impl">Implementation: 3–4 weeks</div>
+        </div>
+        <div class="who-right">
+          <div class="who-col-yield">$66K</div>
+          <div class="who-col-yield-label">Net annual advantage · $10M SPV with $2M idle</div>
+          <p class="who-col-desc">The value here isn't just yield — it's credibility. The white-label Schwab portal makes a first-time sponsor look like they have the same infrastructure as a $1B fund.</p>
+        </div>
       </div>
-      <div class="who-col fade-up delay-2">
-        <div class="who-col-num">02</div>
-        <div class="who-col-title">Real Estate Sponsors</div>
-        <div class="who-col-sub">Value-add · Development · Opportunistic</div>
-        <p class="who-col-desc">Development timelines and equity waterfalls create predictable cash accumulation windows. We build the framework around your deal calendar, not against it.</p>
-        <ul>
-          <li>Pre-close equity staging</li>
-          <li>Construction draw float</li>
-          <li>Disposition proceeds</li>
-        </ul>
+
+      <!-- 3-card row -->
+      <div class="who-cols">
+        <div class="who-col fade-up delay-1">
+          <div class="who-col-num">02</div>
+          <div class="who-col-title">Emerging Managers</div>
+          <div class="who-col-sub">$25M – $250M · Fund I–II</div>
+          <p class="who-col-desc">Competing against established shops for LP allocations with a limited track record. You can't win on performance alone yet — but you can win on infrastructure. HMG gives you the institutional back-office story that closes the credibility gap.</p>
+          <ul>
+            <li>Fund I treasury setup</li>
+            <li>LP reporting alignment</li>
+            <li>Scalable framework</li>
+          </ul>
+          <div class="who-col-yield">$656K</div>
+          <div class="who-col-yield-label">Net annual advantage · $100M Fund I w/ $20M idle</div>
+          <div class="who-col-impl">Implementation: 4–8 weeks</div>
+        </div>
+        <div class="who-col fade-up delay-2">
+          <div class="who-col-num">03</div>
+          <div class="who-col-title">Mid-Market PE Sponsors</div>
+          <div class="who-col-sub">$200M – $2B · Fund II–IV</div>
+          <p class="who-col-desc">The sweet spot where idle capital drag becomes material but in-house treasury operations aren't justified. A $500M fund loses $3.28M annually on unoptimized capital. That's not a rounding error — it's a line item your LPs should be asking about.</p>
+          <ul>
+            <li>Uncalled capital management</li>
+            <li>Distribution float optimization</li>
+            <li>GP co-invest reserves</li>
+          </ul>
+          <div class="who-col-yield">$3.28M</div>
+          <div class="who-col-yield-label">Annual drag · unoptimized $500M fund</div>
+          <div class="who-col-impl">Implementation: 4–8 weeks with counsel</div>
+        </div>
+        <div class="who-col fade-up delay-3">
+          <div class="who-col-num">04</div>
+          <div class="who-col-title">Real Estate Sponsors</div>
+          <div class="who-col-sub">Value-Add · Development · Opportunistic</div>
+          <p class="who-col-desc">Value-add, development, and opportunistic strategies share a common cash flow pattern: significant capital sits idle between acquisitions, during entitlement periods, and between fund vintages. Same platform, same infrastructure, optimized for RE deployment cadence.</p>
+          <ul>
+            <li>Pre-close equity staging</li>
+            <li>Construction draw float</li>
+            <li>Disposition proceeds</li>
+          </ul>
+          <div class="who-col-yield">$6.56M</div>
+          <div class="who-col-yield-label">Net annual advantage · $1B platform</div>
+          <div class="who-col-impl">Implementation: 4–8 weeks</div>
+        </div>
       </div>
-      <div class="who-col fade-up delay-3">
-        <div class="who-col-num">03</div>
-        <div class="who-col-title">Emerging Managers</div>
-        <div class="who-col-sub">First-time institutional funds</div>
-        <p class="who-col-desc">First-time fund managers rarely have the infrastructure to manage fund-level cash with institutional discipline. We bring that infrastructure without requiring institutional scale.</p>
-        <ul>
-          <li>Fund I treasury setup</li>
-          <li>LP reporting alignment</li>
-          <li>Scalable framework</li>
-        </ul>
-      </div>
+
     </div>
   </div>
 </section>
