@@ -465,6 +465,23 @@
     .contact-email:hover { text-decoration: underline; }
     .footer-rule { width: 100%; height: 1px; background: #1a1a1a; margin: 3rem auto; }
     .footer-gold-rule { width: 60px; height: 1px; background: var(--gold); opacity: 0.4; margin: 0 auto 3rem; }
+    .fn-ref {
+      font-size: 0.55rem;
+      vertical-align: super;
+      color: var(--gold-muted);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 400;
+      line-height: 0;
+    }
+    .footnotes {
+      font-size: 0.6rem;
+      color: #444;
+      line-height: 1.9;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+    }
+    .footnotes p { margin-bottom: 0.4rem; }
+    .footnotes sup { color: var(--gold-muted); }
     .disclaimer {
       font-size: 0.65rem;
       color: #3a3a3a;
@@ -546,11 +563,11 @@
     <div class="numbers-grid">
       <div class="stat-block fade-up delay-1">
         <div class="stat-value" data-target="38" data-prefix="$" data-suffix="B+">$0B+</div>
-        <div class="stat-label">Estimated idle capital across US sponsor platforms</div>
+        <div class="stat-label">Estimated idle capital across US sponsor platforms<sup class="fn-ref">1</sup></div>
       </div>
       <div class="stat-block fade-up delay-2">
         <div class="stat-value" data-target="373" data-prefix="" data-suffix="%" data-decimal="2">0.00%</div>
-        <div class="stat-label">Yield gap vs. standard bank sweep</div>
+        <div class="stat-label">Yield gap vs. standard bank sweep<sup class="fn-ref">2</sup></div>
       </div>
       <div class="stat-block fade-up delay-2">
         <div class="stat-value" data-target="186500" data-prefix="$" data-suffix="" data-format="currency">$0</div>
@@ -583,30 +600,74 @@
           <tr>
             <td>Same-Day Liquidity</td>
             <td>Daily access</td>
-            <td class="rate-val">~3.70%</td>
+            <td class="rate-val">~3.70%<sup class="fn-ref">2</sup></td>
           </tr>
           <tr>
             <td>Short-Term Positioning</td>
             <td>1–6 months</td>
-            <td class="rate-val">~3.80%</td>
+            <td class="rate-val">~3.80%<sup class="fn-ref">2</sup></td>
           </tr>
           <tr>
             <td>Extended Duration</td>
             <td>6–12 months</td>
-            <td class="rate-val">~4.10%</td>
+            <td class="rate-val">~4.10%<sup class="fn-ref">2</sup></td>
           </tr>
         </tbody>
       </table>
       <div class="sweep-compare">
         <span>Compared to</span>
-        <strong>0.15% typical bank sweep</strong>
+        <strong>0.15% typical bank sweep<sup class="fn-ref">3</sup></strong>
         <span style="color:var(--gold-muted);">— a gap worth closing.</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 6. CALCULATOR -->
+<!-- 6. INDUSTRY MOVEMENT -->
+<section id="industry" style="background:var(--charcoal);color:var(--white);border-top:1px solid #2a2a2a;border-bottom:1px solid #2a2a2a;">
+  <div class="container">
+    <div class="label fade-up">Industry Context</div>
+    <div class="gold-rule left fade-up delay-1"></div>
+    <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,4.5vw,3.5rem);font-weight:300;max-width:680px;margin:1rem 0 2.5rem;" class="fade-up delay-1">The mega managers already do this.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;" class="fade-up delay-2 industry-grid">
+      <div>
+        <p style="font-size:1rem;line-height:1.8;color:#ccc;margin-bottom:2rem;">In April 2025, Blackstone, Vanguard, and Wellington announced a $3.5 trillion alliance integrating liquid and illiquid capital management. State Street–Apollo, BlackRock–Partners Group, and KKR–Capital Group partnerships followed shortly after.</p>
+        <p style="font-size:1rem;line-height:1.8;color:#ccc;">The convergence of liquid and illiquid capital management is no longer a thesis — it's an industry movement. The question for mid-market sponsors is whether they lead or follow.</p>
+      </div>
+      <div>
+        <div style="border-left:2px solid var(--gold);padding:2rem 2rem;background:rgba(197,164,126,0.05);">
+          <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-muted);margin-bottom:1.5rem;">Notable Partnerships (2024–2025)</p>
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #2a2a2a;padding-bottom:1rem;">
+              <span style="font-size:0.88rem;color:#ccc;">Blackstone · Vanguard · Wellington</span>
+              <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.3rem;color:var(--gold);">$3.5T</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #2a2a2a;padding-bottom:1rem;">
+              <span style="font-size:0.88rem;color:#ccc;">State Street · Apollo</span>
+              <span style="font-size:0.75rem;color:#888;letter-spacing:0.08em;text-transform:uppercase;">Multi-Asset</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #2a2a2a;padding-bottom:1rem;">
+              <span style="font-size:0.88rem;color:#ccc;">BlackRock · Partners Group</span>
+              <span style="font-size:0.75rem;color:#888;letter-spacing:0.08em;text-transform:uppercase;">Alternatives</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;">
+              <span style="font-size:0.88rem;color:#ccc;">KKR · Capital Group</span>
+              <span style="font-size:0.75rem;color:#888;letter-spacing:0.08em;text-transform:uppercase;">Hybrid Capital</span>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:0.82rem;color:var(--gold);line-height:1.7;margin-top:1.5rem;font-style:italic;">HMG brings the same treasury infrastructure to mid-market sponsors — under your brand, at your scale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  @media (max-width: 768px) {
+    .industry-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+  }
+</style>
+
+<!-- 7. CALCULATOR -->
 <section id="calculator">
   <div class="container">
     <div class="label fade-up">Your Numbers</div>
@@ -618,11 +679,11 @@
           <span class="calc-label-text">Fund AUM</span>
           <span class="calc-value-display" id="fund-display">$100M</span>
         </div>
-        <input type="range" id="fund-slider" min="10" max="2000" value="100" step="10" />
+        <input type="range" id="fund-slider" min="10" max="500" value="100" step="5" />
         <div class="calc-ticks">
-          <span>$10M</span><span>$500M</span><span>$1B</span><span>$2B</span>
+          <span>$10M</span><span>$100M</span><span>$250M</span><span>$500M</span>
         </div>
-        <p style="font-size:0.82rem;color:var(--gray);line-height:1.7;margin-top:0.5rem;">Adjust the slider to reflect your total AUM. The calculator estimates idle capital at 20% of fund size — a conservative figure for most sponsor platforms.</p>
+        <p style="font-size:0.82rem;color:var(--gray);line-height:1.7;margin-top:0.5rem;">Adjust the slider to reflect your total fund size. Funds over $500M typically have in-house treasury capacity. The calculator estimates idle capital at 20% of fund size.<sup class="fn-ref">4</sup> Based on industry average across fund lifecycle. Individual fund idle capital varies by deployment pace and vintage.</p>
         <p style="font-size:0.72rem;color:#444;margin-top:1.5rem;line-height:1.6;">All figures are estimates based on current market conditions. Past performance does not guarantee future results.</p>
       </div>
       <div class="calc-results">
@@ -707,12 +768,14 @@
     </div>
     <div class="footer-rule"></div>
     <div class="footer-gold-rule"></div>
+    <div class="footnotes">
+      <p><sup>1</sup> HMG estimate based on Preqin private capital AUM data and industry-average deployment rates.</p>
+      <p><sup>2</sup> Indicative rates based on current U.S. Treasury, agency, and investment-grade corporate yields as of March 2026. Rates subject to change. Not a guarantee of future returns.</p>
+      <p><sup>3</sup> Based on typical bank custodian sweep account rates. Source: Crane Data, March 2026.</p>
+      <p><sup>4</sup> Source: Carta Fund Deployment Report Q2 2024; Bain Global Private Equity Report 2025.</p>
+    </div>
     <p class="disclaimer">
-      Hilltop Management Group is a registered investment adviser. Registration does not imply a certain level of skill or training.
-      All investment strategies involve risk, including potential loss of principal. The yield figures shown are approximate and based
-      on current market conditions — they are subject to change and do not represent a guarantee of future results. This website is
-      for informational purposes only and does not constitute investment advice. Please review our Form ADV for a complete description
-      of our services, fees, and risks.
+      This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities. All yield and rate information is indicative and based on prevailing market conditions. Past performance does not guarantee future results. Investment involves risk of loss. HMG is not a registered investment adviser. Treasury management services are provided through an SEC-registered RIA partner under a fiduciary standard. FDIC insurance applies to eligible deposit placements through IntraFi Network Deposits, subject to limits.
     </p>
   </div>
 </section>
@@ -779,9 +842,7 @@
     const bleed = idle * 0.0373;
     const pct = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
     slider.style.setProperty('--pct', pct + '%');
-    fundDisp.textContent = slider.value >= 1000
-      ? '$' + (slider.value / 1000).toFixed(1) + 'B'
-      : '$' + slider.value + 'M';
+    fundDisp.textContent = '$' + slider.value + 'M';
     idleEl.textContent  = fmt(idle);
     bleedEl.textContent = fmt(bleed);
     monthEl.textContent = fmt(bleed / 12);
