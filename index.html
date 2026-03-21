@@ -497,6 +497,7 @@
       #hero { padding: 100px 24px 80px; }
       .calc-layout { grid-template-columns: 1fr; gap: 48px; }
       section { padding: 72px 24px; }
+      .ops-compare { grid-template-columns: 1fr !important; }
     }
     @media (max-width: 480px) {
       .trust-sep { display: none; }
@@ -613,7 +614,52 @@
   </div>
 </section>
 
-<!-- 6. THE NUMBERS -->
+<!-- 6. OPERATIONS -->
+<section id="operations" style="padding:96px 24px;background:#fff;">
+  <div style="max-width:900px;margin:0 auto;">
+    <p class="label fade-up" style="text-align:center;margin-bottom:24px;">Beyond Yield</p>
+    <h2 class="fade-up delay-1" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:300;text-align:center;margin-bottom:48px;line-height:1.3;color:#0A0A0A;">Your back office,<br>simplified.</h2>
+
+    <div class="ops-compare fade-up delay-2" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:48px;">
+      <div>
+        <h3 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;margin-bottom:16px;color:var(--gold);">Without HMG</h3>
+        <p style="font-size:16px;line-height:1.8;color:#555;">
+          Distributions require individual wires to dozens of LP bank accounts. Each wire needs verification, compliance review, and manual processing. Capital sits in operating accounts between transactions. Reconciliation across multiple custodians and accounts consumes hours of back-office time every distribution cycle.
+        </p>
+      </div>
+      <div>
+        <h3 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;margin-bottom:16px;color:var(--gold);">With HMG</h3>
+        <p style="font-size:16px;line-height:1.8;color:#555;">
+          Capital flows through a single Charles Schwab platform to accounts already registered in each LP's name — or their LLC, trust, or entity. No outbound wires to track. No reconciliation across scattered bank accounts. Distributions, reinvestments, and capital calls all move through one institutional portal under the sponsor's brand. Plug-in, play, move capital.
+        </p>
+      </div>
+    </div>
+
+    <div class="fade-up delay-3" style="background:#0A0A0A;padding:40px;text-align:center;">
+      <p style="color:rgba(255,255,255,0.6);font-size:14px;text-transform:uppercase;letter-spacing:2px;margin-bottom:24px;">The Operational Case</p>
+      <div style="display:flex;justify-content:center;gap:64px;flex-wrap:wrap;">
+        <div>
+          <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:48px;color:var(--gold);line-height:1;">1</p>
+          <p style="color:rgba(255,255,255,0.7);font-size:14px;margin-top:8px;">Platform</p>
+        </div>
+        <div>
+          <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:48px;color:var(--gold);line-height:1;">1</p>
+          <p style="color:rgba(255,255,255,0.7);font-size:14px;margin-top:8px;">Custodian</p>
+        </div>
+        <div>
+          <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:48px;color:var(--gold);line-height:1;">0</p>
+          <p style="color:rgba(255,255,255,0.7);font-size:14px;margin-top:8px;">Outbound Wires</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="fade-up delay-4" style="font-size:16px;line-height:1.8;color:#555;margin-top:32px;text-align:center;max-width:700px;margin-left:auto;margin-right:auto;">
+      Every LP account is registered in their own name at Schwab — individual, LLC, trust, or entity. The sponsor manages capital movement through a single branded portal instead of coordinating with multiple banks and wire desks. It's institutional infrastructure that eliminates operational friction.
+    </p>
+  </div>
+</section>
+
+<!-- 7. THE NUMBERS -->
 <section id="numbers">
   <div class="container">
     <div class="label fade-up" style="text-align:center;">By the Numbers</div>
