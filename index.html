@@ -7,691 +7,759 @@
   <meta name="description" content="Hilltop Management Group builds institutional treasury frameworks for private equity and real estate sponsors. Charles Schwab custody. Same-day liquidity. SEC-registered RIA." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'brief-cream': '#F9F7F2',
-            'brief-paper': '#F2EEE5',
-            'brief-olive': '#2D362E',
-            'brief-gold': '#B8945E',
-            'brief-ink': '#1A1A1A',
-            'brief-muted': '#6B6861'
-          },
-          fontFamily: {
-            'serif': ['Playfair Display', 'serif'],
-            'sans': ['Open Sans', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:      #0A0A0A;
+      --white:      #FFFFFF;
+      --gold:       #C5A47E;
+      --gold-muted: #B8976A;
+      --cream:      #F5F0EB;
+      --charcoal:   #1A1A1A;
+      --gray:       #999999;
+    }
+
     html { scroll-behavior: smooth; }
-    body { font-family: 'Open Sans', sans-serif; background-color: #F9F7F2; }
-    ::selection { background-color: rgba(184, 148, 94, 0.20); }
 
-    .editorial-grid {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 4rem;
-    }
-    @media (max-width: 900px) {
-      .editorial-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
     }
 
-    .drop-cap::first-letter {
-      float: left;
-      font-family: 'Playfair Display', serif;
-      font-size: 5rem;
-      font-weight: 700;
-      color: #2D362E;
-      line-height: 0.8;
-      margin-right: 0.12em;
-      margin-top: 0.08em;
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 400;
+      line-height: 1.1;
     }
 
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-      vertical-align: middle;
+    .label {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
     }
 
-    /* Slider styles */
-    input[type="range"] {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 100%;
-      height: 2px;
-      background: #D4C9B8;
-      outline: none;
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up.delay-1 { transition-delay: 0.15s; }
+    .fade-up.delay-2 { transition-delay: 0.30s; }
+    .fade-up.delay-3 { transition-delay: 0.45s; }
+
+    .gold-rule {
+      width: 60px; height: 1px;
+      background: var(--gold);
+      margin: 0 auto 2rem;
+    }
+    .gold-rule.left { margin-left: 0; }
+
+    section { padding: 96px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* 1. HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 48px 80px;
+      position: relative;
+      background: var(--black);
+    }
+    .hero-inner { max-width: 900px; }
+    .hero-brand {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 3rem;
+    }
+    .hero-headline {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      font-weight: 300;
+      line-height: 1.0;
+      color: var(--white);
+      margin-bottom: 2rem;
+    }
+    .hero-sub {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--gray);
+      max-width: 520px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-custody {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-muted);
+      margin-bottom: 3rem;
+    }
+    .btn-gold {
+      display: inline-block;
+      padding: 14px 36px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+      background: transparent;
+      font-family: inherit;
       cursor: pointer;
     }
-    input[type="range"]::-webkit-slider-runnable-track {
-      background: linear-gradient(to right, #B8945E var(--pct, 18%), #D4C9B8 var(--pct, 18%));
-      height: 2px;
+    .btn-gold:hover { background: var(--gold); color: var(--black); }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--gray);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: sbounce 2.5s infinite;
+    }
+    .scroll-indicator::after {
+      content: '';
+      width: 1px; height: 48px;
+      background: linear-gradient(to bottom, var(--gray), transparent);
+    }
+    @keyframes sbounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* 2. TRUST BAR */
+    #trust {
+      background: var(--charcoal);
+      padding: 28px 24px;
+      border-top: 1px solid #2a2a2a;
+      border-bottom: 1px solid #2a2a2a;
+    }
+    .trust-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .trust-item {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      padding: 6px 28px;
+    }
+    .trust-sep {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+
+    /* 3. PROBLEM */
+    #problem { background: var(--cream); color: var(--black); }
+    .problem-headline {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 4rem);
+      max-width: 700px;
+      margin: 1rem 0 1.5rem;
+      color: var(--black);
+      font-weight: 300;
+    }
+    .problem-body {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #444;
+      max-width: 580px;
+      margin-bottom: 4rem;
+    }
+    .gap-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+    }
+    .gap-card {
+      background: var(--white);
+      padding: 2.5rem 2rem;
+      border-top: 2px solid var(--gold);
+    }
+    .gap-num {
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      color: var(--gold-muted);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .gap-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.4rem;
+      color: var(--black);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .gap-desc { font-size: 0.88rem; line-height: 1.7; color: #555; }
+
+    /* 4. NUMBERS */
+    #numbers {
+      background: var(--black);
+      text-align: center;
+      border-top: 1px solid #1e1e1e;
+    }
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 48px;
+      margin-top: 4rem;
+    }
+    .stat-block { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .stat-value {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+      max-width: 180px;
+      line-height: 1.5;
+    }
+
+    /* 5. ECONOMICS */
+    #economics { background: var(--cream); color: var(--black); }
+    .econ-headline {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      color: var(--black);
+      margin: 1rem 0 3rem;
+      font-weight: 300;
+      max-width: 600px;
+    }
+    .rate-table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; }
+    .rate-table thead tr { border-bottom: 1px solid var(--gold); }
+    .rate-table th {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-muted);
+      padding: 0 0 1rem;
+      font-weight: 500;
+      text-align: left;
+    }
+    .rate-table td {
+      padding: 1.25rem 0;
+      font-size: 0.95rem;
+      color: #222;
+      border-bottom: 1px solid #ddd;
+    }
+    .rate-table td.rate-val {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.6rem;
+      color: var(--black);
+    }
+    .sweep-compare {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      background: var(--white);
+      border-left: 3px solid var(--gold);
+      padding: 16px 24px;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    .sweep-compare strong { color: var(--black); }
+
+    /* 6. CALCULATOR */
+    #calculator { background: var(--black); color: var(--white); }
+    .calc-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 3rem;
+    }
+    .calc-label-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+    }
+    .calc-label-text {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+    .calc-value-display {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.8rem;
+      color: var(--gold);
+    }
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%; height: 1px;
+      background: #333;
+      outline: none;
+      margin-bottom: 8px;
+      cursor: pointer;
     }
     input[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none;
-      width: 18px;
-      height: 18px;
+      width: 16px; height: 16px;
+      background: var(--gold);
       border-radius: 50%;
-      background: #B8945E;
       cursor: pointer;
-      margin-top: -8px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.2);
     }
     input[type="range"]::-moz-range-thumb {
-      width: 18px;
-      height: 18px;
+      width: 16px; height: 16px;
+      background: var(--gold);
       border-radius: 50%;
-      background: #B8945E;
       border: none;
       cursor: pointer;
     }
-    input[type="range"]::-moz-range-track {
-      background: #D4C9B8;
-      height: 2px;
+    input[type="range"]::-webkit-slider-runnable-track {
+      background: linear-gradient(to right, var(--gold) var(--pct, 5%), #333 var(--pct, 5%));
+      height: 1px;
+    }
+    .calc-ticks {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.6rem;
+      color: #555;
+      margin-bottom: 3rem;
+    }
+    .calc-results { border-top: 1px solid #1e1e1e; }
+    .calc-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid #1a1a1a;
+      gap: 16px;
+    }
+    .calc-row-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      flex-shrink: 0;
+    }
+    .calc-row-value {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2rem;
+      color: var(--white);
+    }
+    .calc-row.highlight .calc-row-value { color: var(--gold); }
+    .calc-note { font-size: 0.7rem; color: #555; margin-top: 1.5rem; line-height: 1.6; }
+
+    /* 7. WHO */
+    #who { background: var(--white); color: var(--black); }
+    .who-headline {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      color: var(--black);
+      margin: 1rem 0 4rem;
+      font-weight: 300;
+      max-width: 640px;
+    }
+    .who-cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+    }
+    .who-col {
+      padding: 2.5rem 2rem;
+      border-top: 1px solid var(--gold);
+      background: var(--white);
+    }
+    .who-col-num {
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-muted);
+      margin-bottom: 1rem;
+    }
+    .who-col-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.5rem;
+      color: var(--black);
+      margin-bottom: 0.35rem;
+    }
+    .who-col-sub {
+      font-size: 0.7rem;
+      color: var(--gold-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .who-col-desc { font-size: 0.88rem; line-height: 1.7; color: #555; }
+    .who-col ul { list-style: none; margin-top: 1rem; }
+    .who-col ul li {
+      font-size: 0.85rem;
+      color: #555;
+      padding: 0.35rem 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .who-col ul li::before {
+      content: '';
+      width: 12px; height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
     }
 
-    /* Fade-up animation */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+    /* 8. CTA */
+    #cta {
+      background: var(--black);
+      text-align: center;
+      padding: 120px 24px;
+      border-top: 1px solid #1a1a1a;
     }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-    .fade-up.delay-1 { transition-delay: 0.12s; }
-    .fade-up.delay-2 { transition-delay: 0.24s; }
-    .fade-up.delay-3 { transition-delay: 0.36s; }
-
-    /* Divider rule */
-    .divider-gold {
-      width: 3rem;
-      height: 2px;
-      background: #B8945E;
+    .cta-headline {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      color: var(--white);
+      margin: 1rem 0 1.5rem;
+      font-weight: 300;
     }
-
-    /* Rate card hover */
-    .rate-card {
-      background: #F2EEE5;
-      border: 1px solid #E0D8CC;
-      transition: background 0.2s ease, box-shadow 0.2s ease;
+    .cta-sub { font-size: 0.9rem; color: var(--gray); margin-bottom: 3rem; }
+    .contact-block { margin-top: 5rem; padding-top: 3rem; border-top: 1px solid #1e1e1e; }
+    .contact-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 0.25rem;
     }
-    .rate-card:hover {
-      background: #FFFFFF;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    .contact-title {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-muted);
+      margin-bottom: 1rem;
     }
-
-    /* Who-it's-for card */
-    .sponsor-card {
-      background: #F2EEE5;
-      border-top: 2px solid #B8945E;
-      transition: background 0.2s ease;
-    }
-    .sponsor-card:hover {
-      background: #FFFFFF;
-    }
-
-    /* Pull quote */
-    .pull-quote {
-      border-left: 3px solid #B8945E;
-      padding-left: 1.5rem;
+    .contact-email { font-size: 0.9rem; color: var(--gold); text-decoration: none; }
+    .contact-email:hover { text-decoration: underline; }
+    .footer-rule { width: 100%; height: 1px; background: #1a1a1a; margin: 3rem auto; }
+    .footer-gold-rule { width: 60px; height: 1px; background: var(--gold); opacity: 0.4; margin: 0 auto 3rem; }
+    .disclaimer {
+      font-size: 0.65rem;
+      color: #3a3a3a;
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
-    /* Sticky nav shadow */
-    header {
-      box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+    @media (max-width: 768px) {
+      #hero { padding: 100px 24px 80px; }
+      .calc-layout { grid-template-columns: 1fr; gap: 48px; }
+      section { padding: 72px 24px; }
+    }
+    @media (max-width: 480px) {
+      .trust-sep { display: none; }
+      .trust-item { padding: 6px 12px; }
     }
   </style>
 </head>
-<body class="bg-brief-cream font-sans text-brief-ink antialiased">
+<body>
 
-<!-- ============================================================ -->
-<!-- HEADER -->
-<!-- ============================================================ -->
-<header class="sticky top-0 z-50 bg-white border-b border-stone-200">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
-    <a href="#" class="font-serif text-xl font-semibold text-brief-ink leading-tight tracking-tight whitespace-nowrap">
-      Hilltop Management Group
-    </a>
-    <nav class="hidden md:flex items-center gap-8">
-      <a href="#framework" class="text-xs font-sans font-medium tracking-widest uppercase text-brief-ink/60 hover:text-brief-ink transition-colors">Framework</a>
-      <a href="#economics" class="text-xs font-sans font-medium tracking-widest uppercase text-brief-ink/60 hover:text-brief-ink transition-colors">Economics</a>
-      <a href="#calculator" class="text-xs font-sans font-medium tracking-widest uppercase text-brief-ink/60 hover:text-brief-ink transition-colors">Calculator</a>
-      <a href="#sponsors" class="text-xs font-sans font-medium tracking-widest uppercase text-brief-ink/60 hover:text-brief-ink transition-colors">For Sponsors</a>
-      <a href="#contact" class="text-xs font-sans font-medium tracking-widest uppercase text-brief-ink/60 hover:text-brief-ink transition-colors">Contact</a>
-    </nav>
-    <div class="text-xs font-sans text-brief-gold tracking-widest uppercase font-medium whitespace-nowrap hidden lg:block">
-      Vol. I &mdash; March 2026
-    </div>
-    <a href="mailto:dan@hilltopmanagementgroup.com?subject=Treasury Gap Analysis Request"
-       class="hidden md:inline-block text-xs font-sans font-semibold tracking-widest uppercase px-5 py-2.5 border border-brief-gold text-brief-gold hover:bg-brief-gold hover:text-white transition-colors duration-200">
-      Schedule a Call
-    </a>
+<!-- 1. HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-brand fade-up">Hilltop Management Group</div>
+    <h1 class="hero-headline fade-up delay-1">Every dollar working.<br>Every day.</h1>
+    <p class="hero-sub fade-up delay-2">Idle capital has a cost. We build the framework that closes it — across every stage of the capital lifecycle.</p>
+    <p class="hero-custody fade-up delay-2">Built on Charles Schwab custody. Designed for institutional discipline.</p>
+    <a href="mailto:dan@hilltopmanagementgroup.com?subject=Treasury Gap Analysis Request" class="btn-gold fade-up delay-3">Request a Treasury Gap Analysis</a>
   </div>
-</header>
-
-<!-- ============================================================ -->
-<!-- HERO -->
-<!-- ============================================================ -->
-<section class="bg-brief-olive" style="min-height: 88vh;">
-  <!-- Content -->
-  <div class="max-w-7xl mx-auto px-6 pt-20 pb-24 flex flex-col justify-end" style="min-height: 88vh;">
-    <div class="max-w-3xl fade-up">
-      <div class="inline-block border border-white/30 text-white/90 text-xs font-sans font-semibold tracking-widest uppercase px-4 py-2 mb-8">
-        Special Report: The Quiet Bleed
-      </div>
-      <h1 class="font-serif text-white leading-none mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 700;">
-        Every dollar working.<br>
-        <em class="font-serif text-brief-gold" style="font-style: italic; font-weight: 400;">Every day.</em>
-      </h1>
-      <p class="font-sans text-stone-200 leading-relaxed max-w-xl mb-8" style="font-size: 1.05rem;">
-        Idle capital has a cost. We build the framework that closes it — across every stage of the capital lifecycle.
-      </p>
-      <p class="text-xs font-sans tracking-widest uppercase text-brief-gold mb-8">Built on Charles Schwab custody. Designed for institutional discipline.</p>
-      <div class="flex flex-wrap gap-4 items-center">
-        <a href="mailto:dan@hilltopmanagementgroup.com?subject=Treasury Gap Analysis Request"
-           class="inline-block text-xs font-sans font-semibold tracking-widest uppercase px-7 py-3.5 bg-brief-gold text-white hover:bg-yellow-700 transition-colors duration-200">
-          Request a Treasury Gap Analysis
-        </a>
-        <a href="#framework" class="inline-flex items-center gap-2 text-xs font-sans font-medium tracking-widest uppercase text-stone-300 hover:text-white transition-colors">
-          <span>Read the analysis</span>
-          <span class="material-symbols-outlined text-sm">arrow_downward</span>
-        </a>
-      </div>
-    </div>
-  </div>
+  <div class="scroll-indicator">Scroll</div>
 </section>
 
-<!-- Trust bar -->
-<div class="bg-brief-olive text-white border-t border-stone-700">
-  <div class="max-w-7xl mx-auto px-6 py-3 flex flex-wrap gap-x-8 gap-y-2 items-center justify-center">
-    <span class="text-xs font-sans tracking-widest uppercase text-stone-300">Charles Schwab Custody</span>
-    <span class="w-1 h-1 rounded-full bg-brief-gold opacity-60 hidden sm:block"></span>
-    <span class="text-xs font-sans tracking-widest uppercase text-stone-300">Same-Day Liquidity</span>
-    <span class="w-1 h-1 rounded-full bg-brief-gold opacity-60 hidden sm:block"></span>
-    <span class="text-xs font-sans tracking-widest uppercase text-stone-300">FDIC-Optimized</span>
-    <span class="w-1 h-1 rounded-full bg-brief-gold opacity-60 hidden sm:block"></span>
-    <span class="text-xs font-sans tracking-widest uppercase text-stone-300">SEC-Registered RIA</span>
+<!-- 2. TRUST BAR -->
+<div id="trust">
+  <div class="trust-inner">
+    <span class="trust-item">Charles Schwab Custody</span>
+    <span class="trust-sep"></span>
+    <span class="trust-item">Same-Day Liquidity</span>
+    <span class="trust-sep"></span>
+    <span class="trust-item">FDIC-Optimized</span>
+    <span class="trust-sep"></span>
+    <span class="trust-item">SEC-Registered RIA</span>
   </div>
 </div>
 
-<!-- ============================================================ -->
-<!-- MAIN EDITORIAL CONTENT -->
-<!-- ============================================================ -->
-<section id="framework" class="py-20 px-6">
-  <div class="max-w-7xl mx-auto editorial-grid">
-
-    <!-- LEFT COLUMN -->
-    <div class="fade-up">
-      <p class="text-brief-gold font-serif italic text-sm leading-snug mb-1">Editorial Analysis</p>
-      <p class="text-brief-muted font-sans text-xs tracking-widest uppercase mb-6">By Daniel Fink, Managing Director</p>
-      <div class="divider-gold mb-7"></div>
-
-      <h2 class="font-serif text-brief-ink mb-6 leading-tight" style="font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 600;">
-        Deals get discipline.<br>The capital around them doesn't.
-      </h2>
-
-      <p class="drop-cap font-sans text-brief-ink leading-relaxed text-base mb-5" style="overflow: hidden;">
-        Private equity and real estate sponsors apply rigorous frameworks to deployment — but the capital between events sits unmanaged. Between commitment and close, between exit and redeployment, between vehicles and opportunities, money sits idle. We close those gaps.
-      </p>
-      <p class="font-sans text-brief-ink leading-relaxed text-sm mb-8">
-        The discipline that sponsors apply to deployment rarely extends to the capital lifecycle around it. Carry, fees, and IRR get obsessed over. The float in the operating account does not. That silence has a cost — a quiet bleed that erodes returns before a single deal is closed.
-      </p>
-
-      <!-- Executive Summary Box -->
-      <div class="bg-brief-olive text-white p-7 mb-8">
-        <p class="text-xs font-sans font-semibold tracking-widest uppercase text-brief-gold mb-5">Executive Summary</p>
-        <ol class="space-y-4">
-          <li class="flex gap-4 text-sm font-sans leading-relaxed">
-            <span class="font-serif text-brief-gold text-lg font-bold leading-none mt-0.5 flex-shrink-0">1.</span>
-            <span class="text-stone-200">There is a <strong class="text-white">3.73% yield gap</strong> between what idle capital earns in standard bank sweeps (0.15%) and what a structured treasury framework delivers (~3.88% blended).<sup class="text-brief-gold text-xs">2</sup></span>
-          </li>
-          <li class="flex gap-4 text-sm font-sans leading-relaxed">
-            <span class="font-serif text-brief-gold text-lg font-bold leading-none mt-0.5 flex-shrink-0">2.</span>
-            <span class="text-stone-200">HMG builds and manages the full treasury infrastructure — laddered positioning, daily liquidity, FDIC-optimized custodianship — under your firm's name on a Schwab institutional platform.</span>
-          </li>
-          <li class="flex gap-4 text-sm font-sans leading-relaxed">
-            <span class="font-serif text-brief-gold text-lg font-bold leading-none mt-0.5 flex-shrink-0">3.</span>
-            <span class="text-stone-200">All assets are held in custody at <strong class="text-white">Charles Schwab</strong>, providing institutional-grade security, transparency, and LP reporting — not a proprietary platform or pooled structure.</span>
-          </li>
-        </ol>
+<!-- 3. THE PROBLEM -->
+<section id="problem">
+  <div class="container">
+    <div class="label fade-up">Framework</div>
+    <div class="gold-rule left fade-up delay-1"></div>
+    <h2 class="problem-headline fade-up delay-1">Deals get discipline.<br>The capital around them doesn't.</h2>
+    <p class="problem-body fade-up delay-2">Private equity and real estate sponsors apply rigorous frameworks to deployment — but the capital between events sits unmanaged. Between commitment and close, between exit and redeployment, between vehicles and opportunities, money sits idle. We close those gaps.</p>
+    <div class="gap-cards">
+      <div class="gap-card fade-up delay-1">
+        <div class="gap-num">Gap 01</div>
+        <div class="gap-title">Between Commitment &amp; Deployment</div>
+        <p class="gap-desc">Capital committed to a fund but not yet called sits in low-yield accounts for months — sometimes years. That window is recoverable yield you're silently forfeiting.</p>
       </div>
-
-      <!-- Gap Cards -->
-      <div class="space-y-px">
-        <div class="bg-brief-paper border-t-2 border-brief-gold p-5">
-          <p class="text-xs font-sans text-brief-gold tracking-widest uppercase mb-2">Gap 01</p>
-          <h4 class="font-serif text-brief-ink text-lg mb-2">Between Commitment &amp; Deployment</h4>
-          <p class="text-sm font-sans text-brief-ink leading-relaxed">Capital committed to a fund but not yet called sits in low-yield accounts for months — sometimes years. That window is recoverable yield you're silently forfeiting.</p>
-        </div>
-        <div class="bg-brief-paper border-t border-brief-gold/40 p-5">
-          <p class="text-xs font-sans text-brief-gold tracking-widest uppercase mb-2">Gap 02</p>
-          <h4 class="font-serif text-brief-ink text-lg mb-2">Between Exit &amp; Redeployment</h4>
-          <p class="text-sm font-sans text-brief-ink leading-relaxed">Distributions and realized proceeds return to cash before finding their next home. Without a framework, that capital erodes in real terms while you evaluate the next opportunity.</p>
-        </div>
-        <div class="bg-brief-paper border-t border-brief-gold/40 p-5">
-          <p class="text-xs font-sans text-brief-gold tracking-widest uppercase mb-2">Gap 03</p>
-          <h4 class="font-serif text-brief-ink text-lg mb-2">Between Vehicles &amp; Opportunities</h4>
-          <p class="text-sm font-sans text-brief-ink leading-relaxed">Operating reserves, GP commitments, and fund-level cash balances require day-to-day management. Most sponsors have no institutional-grade solution for this layer.</p>
-        </div>
+      <div class="gap-card fade-up delay-2">
+        <div class="gap-num">Gap 02</div>
+        <div class="gap-title">Between Exit &amp; Redeployment</div>
+        <p class="gap-desc">Distributions and realized proceeds return to cash before finding their next home. Without a framework, that capital erodes in real terms while you evaluate the next opportunity.</p>
+      </div>
+      <div class="gap-card fade-up delay-3">
+        <div class="gap-num">Gap 03</div>
+        <div class="gap-title">Between Vehicles &amp; Opportunities</div>
+        <p class="gap-desc">Operating reserves, GP commitments, and fund-level cash balances require day-to-day management. Most sponsors have no institutional-grade solution for this layer.</p>
       </div>
     </div>
-
-    <!-- RIGHT COLUMN -->
-    <div class="fade-up delay-1">
-      <!-- Rate Cards -->
-      <div id="economics" class="mb-10">
-        <div class="flex items-baseline justify-between mb-1">
-          <h3 class="font-serif text-brief-ink text-2xl font-semibold">The economics can be meaningful.</h3>
-        </div>
-        <p class="text-xs font-sans text-brief-muted tracking-widest uppercase mb-6">Indicative rates · Verified: March 2026 <span class="text-brief-gold">·</span> Subject to market conditions<sup class="text-brief-gold">2</sup></p>
-
-        <div class="grid grid-cols-2 gap-3 mb-6">
-          <div class="rate-card p-5 rounded-sm">
-            <p class="text-xs font-sans text-brief-muted tracking-widest uppercase mb-3">Same-Day Liquidity</p>
-            <p class="font-serif text-brief-ink font-bold mb-1" style="font-size: 2.2rem; line-height: 1;">~3.70%</p>
-            <p class="text-xs font-sans text-brief-muted">Daily access · vs. 0.15% sweep<sup class="text-brief-gold">2,3</sup></p>
-          </div>
-          <div class="rate-card p-5 rounded-sm">
-            <p class="text-xs font-sans text-brief-muted tracking-widest uppercase mb-3">Short-Term</p>
-            <p class="font-serif text-brief-ink font-bold mb-1" style="font-size: 2.2rem; line-height: 1;">~3.80%</p>
-            <p class="text-xs font-sans text-brief-muted">1–6 months positioning<sup class="text-brief-gold">2</sup></p>
-          </div>
-          <div class="rate-card p-5 rounded-sm">
-            <p class="text-xs font-sans text-brief-muted tracking-widest uppercase mb-3">Extended Duration</p>
-            <p class="font-serif text-brief-ink font-bold mb-1" style="font-size: 2.2rem; line-height: 1;">~4.10%</p>
-            <p class="text-xs font-sans text-brief-muted">6–12 months horizon<sup class="text-brief-gold">2</sup></p>
-          </div>
-          <div class="rate-card p-5 rounded-sm border-brief-gold/50" style="border-color: rgba(184,148,94,0.4);">
-            <p class="text-xs font-sans text-brief-gold tracking-widest uppercase mb-3 font-semibold">Blended Portfolio</p>
-            <p class="font-serif text-brief-gold font-bold mb-1" style="font-size: 2.2rem; line-height: 1;">~3.93%</p>
-            <p class="text-xs font-sans text-brief-muted">Full ladder · optimized<sup class="text-brief-gold">2</sup></p>
-          </div>
-        </div>
-
-        <!-- Pull Quote -->
-        <div class="pull-quote mb-8 py-2">
-          <blockquote class="font-serif text-brief-ink italic leading-relaxed mb-3" style="font-size: 1.1rem;">
-            "The discipline that sponsors apply to deals rarely extends to the capital lifecycle around them. That gap has a cost."
-          </blockquote>
-          <cite class="text-xs font-sans text-brief-gold tracking-widest uppercase not-italic">— Hilltop Management Group</cite>
-        </div>
-      </div>
-
-      <!-- Stats row -->
-      <div class="bg-brief-paper border border-stone-200 p-6 mb-8">
-        <p class="text-xs font-sans text-brief-muted tracking-widest uppercase mb-5">By the Numbers</p>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div>
-            <p class="font-serif text-brief-ink font-bold" style="font-size: 2rem; line-height: 1;">$38B<span class="text-brief-gold">+</span></p>
-            <p class="text-xs font-sans text-brief-muted leading-snug mt-1">Estimated idle capital, US sponsor platforms<sup class="text-brief-gold">1</sup></p>
-          </div>
-          <div>
-            <p class="font-serif text-brief-ink font-bold" style="font-size: 2rem; line-height: 1;">3.73<span class="text-brief-gold">%</span></p>
-            <p class="text-xs font-sans text-brief-muted leading-snug mt-1">Yield gap vs. standard bank sweep<sup class="text-brief-gold">2</sup></p>
-          </div>
-          <div>
-            <p class="font-serif text-brief-gold font-bold" style="font-size: 2rem; line-height: 1;">$187K</p>
-            <p class="text-xs font-sans text-brief-muted leading-snug mt-1">Annual opportunity on $50M idle</p>
-          </div>
-          <div>
-            <p class="font-serif text-brief-ink font-bold" style="font-size: 2rem; line-height: 1;">1<span class="text-brief-gold"> Day</span></p>
-            <p class="text-xs font-sans text-brief-muted leading-snug mt-1">Liquidity — no lock-up required</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Process steps -->
-      <div class="border-t border-stone-200 pt-6">
-        <p class="text-xs font-sans text-brief-muted tracking-widest uppercase mb-5">The HMG Process</p>
-        <div class="space-y-0">
-          <div class="flex gap-5 pb-5 border-b border-stone-200">
-            <div class="w-8 h-8 rounded-full bg-brief-olive text-white flex items-center justify-center flex-shrink-0 font-sans font-semibold text-xs">01</div>
-            <div>
-              <p class="font-serif text-brief-ink font-medium text-base mb-1">Treasury Gap Analysis</p>
-              <p class="text-xs font-sans text-brief-ink leading-relaxed">We map your current cash positions, sweep rates, and idle windows to quantify the exact annual opportunity at your scale. Typically completed within one week.</p>
-            </div>
-          </div>
-          <div class="flex gap-5 py-5 border-b border-stone-200">
-            <div class="w-8 h-8 rounded-full bg-brief-olive text-white flex items-center justify-center flex-shrink-0 font-sans font-semibold text-xs">02</div>
-            <div>
-              <p class="font-serif text-brief-ink font-medium text-base mb-1">Framework Design</p>
-              <p class="text-xs font-sans text-brief-ink leading-relaxed">Custom ladder structure built around your deployment cadence, liquidity requirements, and duration tolerance. Integrated with legal counsel where required.</p>
-            </div>
-          </div>
-          <div class="flex gap-5 py-5 border-b border-stone-200">
-            <div class="w-8 h-8 rounded-full bg-brief-olive text-white flex items-center justify-center flex-shrink-0 font-sans font-semibold text-xs">03</div>
-            <div>
-              <p class="font-serif text-brief-ink font-medium text-base mb-1">Schwab Onboarding</p>
-              <p class="text-xs font-sans text-brief-ink leading-relaxed">Institutional accounts established in your fund's name at Charles Schwab. Branded LP portal, full transparency, daily reporting. 3–8 weeks depending on structure.</p>
-            </div>
-          </div>
-          <div class="flex gap-5 pt-5">
-            <div class="w-8 h-8 rounded-full bg-brief-gold text-white flex items-center justify-center flex-shrink-0 font-sans font-semibold text-xs">04</div>
-            <div>
-              <p class="font-serif text-brief-ink font-medium text-base mb-1">Ongoing Management</p>
-              <p class="text-xs font-sans text-brief-ink leading-relaxed">Active monitoring, rebalancing, and quarterly reporting. You focus on deals. We focus on the capital between them.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- ============================================================ -->
-<!-- CALCULATOR -->
-<!-- ============================================================ -->
-<section id="calculator" class="py-20 px-6 bg-brief-paper border-t border-stone-200">
-  <div class="max-w-7xl mx-auto">
-
-    <div class="max-w-2xl mb-12 fade-up">
-      <p class="text-xs font-sans text-brief-gold tracking-widest uppercase font-semibold mb-3">Interactive Analysis</p>
-      <div class="divider-gold mb-5"></div>
-      <h2 class="font-serif text-brief-ink font-semibold leading-tight mb-4" style="font-size: clamp(2rem, 4vw, 3rem);">
-        See what your fund is leaving behind.
-      </h2>
-      <p class="font-sans text-brief-ink text-sm leading-relaxed">
-        Adjust the slider to reflect your total fund size. Funds over $500M typically have in-house treasury capacity. The calculator estimates idle capital at 20% of fund size.<sup class="text-brief-gold text-xs">4</sup> Based on industry average across fund lifecycle. Individual fund idle capital varies by deployment pace and vintage.
-      </p>
+<!-- 4. THE NUMBERS -->
+<section id="numbers">
+  <div class="container">
+    <div class="label fade-up" style="text-align:center;">By the Numbers</div>
+    <div style="text-align:center;"><div class="gold-rule fade-up delay-1"></div></div>
+    <div class="numbers-grid">
+      <div class="stat-block fade-up delay-1">
+        <div class="stat-value" data-target="38" data-prefix="$" data-suffix="B+">$0B+</div>
+        <div class="stat-label">Estimated idle capital across US sponsor platforms</div>
+      </div>
+      <div class="stat-block fade-up delay-2">
+        <div class="stat-value" data-target="373" data-prefix="" data-suffix="%" data-decimal="2">0.00%</div>
+        <div class="stat-label">Yield gap vs. standard bank sweep</div>
+      </div>
+      <div class="stat-block fade-up delay-2">
+        <div class="stat-value" data-target="186500" data-prefix="$" data-suffix="" data-format="currency">$0</div>
+        <div class="stat-label">Annual opportunity on $50M idle</div>
+      </div>
+      <div class="stat-block fade-up delay-3">
+        <div class="stat-value" data-target="1" data-prefix="" data-suffix=" Day">0 Day</div>
+        <div class="stat-label">Liquidity — no lock-up required</div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="grid md:grid-cols-2 gap-12 items-start fade-up delay-1">
-      <!-- Slider side -->
+<!-- 5. ECONOMICS -->
+<section id="economics">
+  <div class="container">
+    <div class="label fade-up">Economics</div>
+    <div class="gold-rule left fade-up delay-1"></div>
+    <h2 class="econ-headline fade-up delay-1">The economics can be meaningful.</h2>
+    <div class="fade-up delay-2">
+      <table class="rate-table">
+        <thead>
+          <tr>
+            <th>Strategy</th>
+            <th>Horizon</th>
+            <th>Approximate Yield</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Same-Day Liquidity</td>
+            <td>Daily access</td>
+            <td class="rate-val">~3.70%</td>
+          </tr>
+          <tr>
+            <td>Short-Term Positioning</td>
+            <td>1–6 months</td>
+            <td class="rate-val">~3.80%</td>
+          </tr>
+          <tr>
+            <td>Extended Duration</td>
+            <td>6–12 months</td>
+            <td class="rate-val">~4.10%</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="sweep-compare">
+        <span>Compared to</span>
+        <strong>0.15% typical bank sweep</strong>
+        <span style="color:var(--gold-muted);">— a gap worth closing.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CALCULATOR -->
+<section id="calculator">
+  <div class="container">
+    <div class="label fade-up">Your Numbers</div>
+    <div class="gold-rule left fade-up delay-1"></div>
+    <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,4.5vw,3.5rem);font-weight:300;max-width:560px;" class="fade-up delay-1">See what your fund is leaving behind.</h2>
+    <div class="calc-layout fade-up delay-2">
       <div>
-        <div class="flex justify-between items-baseline mb-3">
-          <label class="text-xs font-sans font-medium tracking-widest uppercase text-brief-muted">Fund AUM</label>
-          <span class="font-serif text-brief-gold font-bold text-3xl" id="fund-display">$100M</span>
+        <div class="calc-label-group">
+          <span class="calc-label-text">Fund AUM</span>
+          <span class="calc-value-display" id="fund-display">$100M</span>
         </div>
-        <input type="range" id="fund-slider" min="10" max="500" value="100" step="5" class="mb-2" />
-        <div class="flex justify-between text-xs font-sans text-brief-muted mb-8">
-          <span>$10M</span><span>$100M</span><span>$250M</span><span>$500M</span>
+        <input type="range" id="fund-slider" min="10" max="2000" value="100" step="10" />
+        <div class="calc-ticks">
+          <span>$10M</span><span>$500M</span><span>$1B</span><span>$2B</span>
         </div>
-        <p class="text-xs font-sans text-brief-muted leading-relaxed mb-4">
-          Funds over $500M typically maintain in-house treasury capacity. All figures are estimates based on current market conditions. Past performance does not guarantee future results.
-        </p>
-        <div class="bg-white border border-stone-200 p-5">
-          <p class="text-xs font-sans text-brief-muted tracking-widest uppercase mb-4 font-medium">Methodology</p>
-          <div class="space-y-2 text-xs font-sans text-brief-muted leading-relaxed">
-            <p><span class="text-brief-ink font-medium">Idle capital:</span> Fund AUM × 20% (industry average)<sup class="text-brief-gold">4</sup></p>
-            <p><span class="text-brief-ink font-medium">Quiet bleed:</span> Idle × 3.73% yield gap vs. sweep<sup class="text-brief-gold">2,3</sup></p>
-            <p><span class="text-brief-ink font-medium">Net gain:</span> Idle × (3.93% − 0.50% mgmt fee − 0.20% est. costs)</p>
-          </div>
-        </div>
+        <p style="font-size:0.82rem;color:var(--gray);line-height:1.7;margin-top:0.5rem;">Adjust the slider to reflect your total AUM. The calculator estimates idle capital at 20% of fund size — a conservative figure for most sponsor platforms.</p>
+        <p style="font-size:0.72rem;color:#444;margin-top:1.5rem;line-height:1.6;">All figures are estimates based on current market conditions. Past performance does not guarantee future results.</p>
       </div>
-
-      <!-- Results side -->
-      <div class="bg-white border border-stone-200">
-        <div class="p-6 border-b border-stone-100">
-          <p class="text-xs font-sans text-brief-muted tracking-widest uppercase font-medium">Treasury Analysis Results</p>
+      <div class="calc-results">
+        <div class="calc-row">
+          <span class="calc-row-label">Estimated Idle Capital</span>
+          <span class="calc-row-value" id="idle-capital">$20M</span>
         </div>
-        <div class="divide-y divide-stone-100">
-          <div class="flex justify-between items-baseline px-6 py-5">
-            <span class="text-xs font-sans text-brief-muted tracking-widest uppercase">Estimated Idle Capital</span>
-            <span class="font-serif text-brief-ink font-bold text-2xl" id="idle-capital">$20M</span>
-          </div>
-          <div class="flex justify-between items-baseline px-6 py-5">
-            <span class="text-xs font-sans text-brief-muted tracking-widest uppercase">Annual Quiet Bleed</span>
-            <span class="font-serif text-brief-ink font-bold text-2xl" id="quiet-bleed">$746K</span>
-          </div>
-          <div class="flex justify-between items-baseline px-6 py-5">
-            <span class="text-xs font-sans text-brief-muted tracking-widest uppercase">Monthly Opportunity Cost</span>
-            <span class="font-serif text-brief-ink font-bold text-2xl" id="monthly-cost">$62K</span>
-          </div>
-          <div class="flex justify-between items-baseline px-6 py-5 bg-brief-olive">
-            <span class="text-xs font-sans text-stone-300 tracking-widest uppercase">Net Annual Gain with HMG</span>
-            <span class="font-serif text-brief-gold font-bold" style="font-size: 2rem;" id="net-gain">$646K</span>
-          </div>
+        <div class="calc-row">
+          <span class="calc-row-label">Annual Quiet Bleed</span>
+          <span class="calc-row-value" id="quiet-bleed">$746K</span>
         </div>
-        <div class="px-6 py-4 bg-brief-paper border-t border-stone-200">
-          <p class="text-xs font-sans text-brief-ink leading-relaxed">Net of estimated 50bps management fee. Based on 3.73% yield gap and 20% idle capital assumption. Indicative only.</p>
+        <div class="calc-row">
+          <span class="calc-row-label">Monthly Opportunity Cost</span>
+          <span class="calc-row-value" id="monthly-cost">$62K</span>
         </div>
+        <div class="calc-row highlight">
+          <span class="calc-row-label">Net Annual Gain with HMG</span>
+          <span class="calc-row-value" id="net-gain">$646K</span>
+        </div>
+        <p class="calc-note">Net of estimated 50bps management fee. Based on 3.73% yield gap and 20% idle capital assumption.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ -->
-<!-- INDUSTRY MOVEMENT -->
-<!-- ============================================================ -->
-<section class="py-20 px-6 bg-brief-olive">
-  <div class="max-w-7xl mx-auto fade-up">
-    <div class="max-w-3xl mx-auto text-center mb-12">
-      <p class="text-xs font-sans text-brief-gold tracking-widest uppercase font-semibold mb-4">Industry Context</p>
-      <h2 class="font-serif text-white font-semibold leading-tight mb-6" style="font-size: clamp(2rem, 4vw, 3rem);">
-        The mega managers already do this.
-      </h2>
-      <p class="font-sans text-stone-300 leading-relaxed text-base">
-        In April 2025, Blackstone, Vanguard, and Wellington announced a $3.5 trillion alliance integrating liquid and illiquid capital management. State Street–Apollo, BlackRock–Partners Group, and KKR–Capital Group partnerships followed shortly after.
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-8 items-start">
-      <div class="border-l-2 border-brief-gold pl-8">
-        <p class="font-sans text-stone-200 leading-relaxed text-base mb-6">
-          The convergence of liquid and illiquid capital management is no longer a thesis — it's an industry movement. The mega managers have integrated their treasury operations with their investment platforms. The question for mid-market sponsors is whether they lead or follow.
-        </p>
-        <p class="font-serif text-brief-gold italic text-lg leading-relaxed">
-          "The mega managers already do this. HMG brings the same capability to mid-market sponsors — under your brand, at your scale."
-        </p>
+<!-- 7. WHO IT'S FOR -->
+<section id="who">
+  <div class="container">
+    <div class="label fade-up">Who We Serve</div>
+    <div class="gold-rule left fade-up delay-1"></div>
+    <h2 class="who-headline fade-up delay-1">Built for the operators running serious capital.</h2>
+    <div class="who-cols">
+      <div class="who-col fade-up delay-1">
+        <div class="who-col-num">01</div>
+        <div class="who-col-title">PE Sponsors</div>
+        <div class="who-col-sub">$200M – $2B AUM</div>
+        <p class="who-col-desc">Established buyout and growth equity funds with dry powder, fund reserves, and recycle capital requiring institutional-grade cash management between deployment cycles.</p>
+        <ul>
+          <li>Uncalled capital management</li>
+          <li>Distribution float optimization</li>
+          <li>GP co-invest reserves</li>
+        </ul>
       </div>
-
-      <div class="bg-white/5 border border-white/10 p-6">
-        <p class="text-xs font-sans text-brief-gold tracking-widest uppercase mb-5 font-medium">Notable Partnerships (2024–2025)</p>
-        <div class="divide-y divide-white/10">
-          <div class="flex justify-between items-baseline py-3">
-            <span class="text-sm font-sans text-stone-300">Blackstone · Vanguard · Wellington</span>
-            <span class="font-serif text-brief-gold font-semibold text-xl">$3.5T</span>
-          </div>
-          <div class="flex justify-between items-baseline py-3">
-            <span class="text-sm font-sans text-stone-300">State Street · Apollo</span>
-            <span class="text-xs font-sans text-stone-400 tracking-widest uppercase">Multi-Asset</span>
-          </div>
-          <div class="flex justify-between items-baseline py-3">
-            <span class="text-sm font-sans text-stone-300">BlackRock · Partners Group</span>
-            <span class="text-xs font-sans text-stone-400 tracking-widest uppercase">Alternatives</span>
-          </div>
-          <div class="flex justify-between items-baseline py-3">
-            <span class="text-sm font-sans text-stone-300">KKR · Capital Group</span>
-            <span class="text-xs font-sans text-stone-400 tracking-widest uppercase">Hybrid Capital</span>
-          </div>
-        </div>
+      <div class="who-col fade-up delay-2">
+        <div class="who-col-num">02</div>
+        <div class="who-col-title">Real Estate Sponsors</div>
+        <div class="who-col-sub">Value-add · Development · Opportunistic</div>
+        <p class="who-col-desc">Development timelines and equity waterfalls create predictable cash accumulation windows. We build the framework around your deal calendar, not against it.</p>
+        <ul>
+          <li>Pre-close equity staging</li>
+          <li>Construction draw float</li>
+          <li>Disposition proceeds</li>
+        </ul>
+      </div>
+      <div class="who-col fade-up delay-3">
+        <div class="who-col-num">03</div>
+        <div class="who-col-title">Emerging Managers</div>
+        <div class="who-col-sub">First-time institutional funds</div>
+        <p class="who-col-desc">First-time fund managers rarely have the infrastructure to manage fund-level cash with institutional discipline. We bring that infrastructure without requiring institutional scale.</p>
+        <ul>
+          <li>Fund I treasury setup</li>
+          <li>LP reporting alignment</li>
+          <li>Scalable framework</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ -->
-<!-- WHO IT'S FOR -->
-<!-- ============================================================ -->
-<section id="sponsors" class="py-20 px-6 bg-brief-cream">
-  <div class="max-w-7xl mx-auto">
-    <div class="max-w-2xl mb-12 fade-up">
-      <p class="text-xs font-sans text-brief-gold tracking-widest uppercase font-semibold mb-3">Who It's For</p>
-      <div class="divider-gold mb-5"></div>
-      <h2 class="font-serif text-brief-ink font-semibold leading-tight" style="font-size: clamp(2rem, 4vw, 3rem);">
-        Built for every stage<br>of the <span class="text-brief-gold">sponsor lifecycle.</span>
-      </h2>
+<!-- 8. CTA / FOOTER -->
+<section id="cta">
+  <div class="container">
+    <div class="label fade-up">Get Started</div>
+    <div class="gold-rule fade-up delay-1"></div>
+    <h2 class="cta-headline fade-up delay-1">Ready to see your numbers?</h2>
+    <p class="cta-sub fade-up delay-2">A 30-minute conversation is enough to model the opportunity for your platform.</p>
+    <a href="mailto:dan@hilltopmanagementgroup.com?subject=Treasury Gap Analysis Request" class="btn-gold fade-up delay-2">Schedule a Conversation</a>
+    <div class="contact-block fade-up delay-3">
+      <div class="contact-name">Daniel Fink</div>
+      <div class="contact-title">Managing Director</div>
+      <a href="mailto:dan@hilltopmanagementgroup.com" class="contact-email">dan@hilltopmanagementgroup.com</a>
     </div>
-
-    <div class="grid gap-px">
-      <!-- Featured — First-Time Sponsors -->
-      <div class="sponsor-card p-8 md:p-10 fade-up" style="border-top-width: 3px;">
-        <div class="editorial-grid items-start gap-8">
-          <div>
-            <span class="inline-block text-xs font-sans font-semibold tracking-widest uppercase border border-brief-gold text-brief-gold px-3 py-1 mb-4">Start Here</span>
-            <h3 class="font-serif text-brief-ink font-semibold text-2xl mb-2">First-Time Sponsors &amp; Single-Project Vehicles</h3>
-            <p class="text-xs font-sans text-brief-muted tracking-widest uppercase mb-4">$10M – $100M · SPVs, syndicates, single-asset deals</p>
-            <p class="font-sans text-brief-ink text-sm leading-relaxed mb-4">
-              You don't need a fund to look institutional. Whether you're syndicating a single asset, raising a first SPV, or managing capital for a small group of investors — the same idle capital problem exists at your scale.
-            </p>
-            <p class="font-sans text-brief-ink text-sm leading-relaxed">
-              A $10M SPV with $2M idle still generates $66K in net annual advantage through HMG. More importantly: your investors see a branded Charles Schwab portal with institutional reporting, not a spreadsheet in a shared folder.
-            </p>
-          </div>
-          <div class="bg-white border border-stone-200 p-6">
-            <p class="font-serif text-brief-gold font-bold mb-1" style="font-size: 2.5rem; line-height: 1;">+$66K</p>
-            <p class="text-xs font-sans text-brief-muted tracking-widest uppercase mb-6">Net annual gain on $10M fund</p>
-            <div class="space-y-2">
-              <div class="flex items-center gap-3 text-sm font-sans text-brief-ink">
-                <span class="material-symbols-outlined text-brief-gold text-base">check_circle</span>
-                Branded Schwab institutional portal
-              </div>
-              <div class="flex items-center gap-3 text-sm font-sans text-brief-ink">
-                <span class="material-symbols-outlined text-brief-gold text-base">check_circle</span>
-                Same-day liquidity, no lock-up
-              </div>
-              <div class="flex items-center gap-3 text-sm font-sans text-brief-ink">
-                <span class="material-symbols-outlined text-brief-gold text-base">check_circle</span>
-                FDIC-optimized placement
-              </div>
-              <div class="flex items-center gap-3 text-sm font-sans text-brief-ink">
-                <span class="material-symbols-outlined text-brief-gold text-base">check_circle</span>
-                Quarterly LP reporting
-              </div>
-            </div>
-            <p class="text-xs font-sans text-brief-gold font-semibold mt-5">Implementation: 3–4 weeks</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Three column sponsors -->
-      <div class="grid md:grid-cols-3 gap-px">
-        <div class="sponsor-card p-6 fade-up delay-1">
-          <p class="text-xs font-sans text-brief-gold tracking-widest uppercase font-medium mb-1">Emerging Managers</p>
-          <h3 class="font-serif text-brief-ink font-semibold text-xl mb-2">Fund I–II</h3>
-          <p class="text-xs font-sans text-brief-muted tracking-widest uppercase mb-4">$25M – $250M</p>
-          <p class="font-sans text-brief-ink text-sm leading-relaxed mb-5">
-            Competing against established shops for LP allocations with limited track record. You can't win on performance alone yet — but you can win on infrastructure. HMG gives you the institutional back-office story that closes the credibility gap.
-          </p>
-          <p class="font-sans text-sm leading-relaxed mb-2">
-            A $100M Fund I with $20M idle generates <strong class="text-brief-gold">+$656K</strong> in net annual yield advantage.
-          </p>
-          <p class="text-xs font-sans text-brief-muted mt-4">Implementation: 4–8 weeks</p>
-        </div>
-
-        <div class="sponsor-card p-6 fade-up delay-2">
-          <p class="text-xs font-sans text-brief-gold tracking-widest uppercase font-medium mb-1">Mid-Market PE</p>
-          <h3 class="font-serif text-brief-ink font-semibold text-xl mb-2">Fund II–IV</h3>
-          <p class="text-xs font-sans text-brief-muted tracking-widest uppercase mb-4">$200M – $2B</p>
-          <p class="font-sans text-brief-ink text-sm leading-relaxed mb-5">
-            The sweet spot where idle capital drag becomes material but in-house treasury operations aren't justified. A $500M fund loses $3.28M annually on unoptimized capital. That's not a rounding error — it's a line item your LPs should be asking about.
-          </p>
-          <p class="font-sans text-sm leading-relaxed mb-2">
-            Net annual gain on $500M: <strong class="text-brief-gold">+$3.28M</strong>
-          </p>
-          <p class="text-xs font-sans text-brief-muted mt-4">Implementation: 4–8 weeks with counsel</p>
-        </div>
-
-        <div class="sponsor-card p-6 fade-up delay-3">
-          <p class="text-xs font-sans text-brief-gold tracking-widest uppercase font-medium mb-1">Real Estate</p>
-          <h3 class="font-serif text-brief-ink font-semibold text-xl mb-2">All Strategies</h3>
-          <p class="text-xs font-sans text-brief-muted tracking-widest uppercase mb-4">Value-add · Development · Opportunistic</p>
-          <p class="font-sans text-brief-ink text-sm leading-relaxed mb-5">
-            Value-add, development, and opportunistic strategies share a common pattern: significant capital sits idle between acquisitions, during entitlement periods, and between fund vintages. Whether you're a multifamily operator or a mixed-use sponsor — the gap exists and it compounds.
-          </p>
-          <p class="font-sans text-sm leading-relaxed mb-2">
-            Same platform, optimized for <strong class="text-brief-gold">RE deployment cadence</strong>.
-          </p>
-          <p class="text-xs font-sans text-brief-muted mt-4">Flexible implementation</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- FOOTER / CTA -->
-<!-- ============================================================ -->
-<footer id="contact" class="bg-brief-ink text-white">
-  <!-- CTA Banner -->
-  <div class="border-b border-white/10 py-14 px-6 text-center">
-    <p class="text-xs font-sans text-brief-gold tracking-widest uppercase font-semibold mb-4">Get Started</p>
-    <h2 class="font-serif font-semibold text-white leading-tight mb-4" style="font-size: clamp(2rem, 4vw, 3rem);">
-      Ready to see your numbers?
-    </h2>
-    <p class="font-sans text-stone-400 text-sm leading-relaxed max-w-md mx-auto mb-8">
-      A 30-minute conversation is enough to model the opportunity for your platform. No obligation.
+    <div class="footer-rule"></div>
+    <div class="footer-gold-rule"></div>
+    <p class="disclaimer">
+      Hilltop Management Group is a registered investment adviser. Registration does not imply a certain level of skill or training.
+      All investment strategies involve risk, including potential loss of principal. The yield figures shown are approximate and based
+      on current market conditions — they are subject to change and do not represent a guarantee of future results. This website is
+      for informational purposes only and does not constitute investment advice. Please review our Form ADV for a complete description
+      of our services, fees, and risks.
     </p>
-    <a href="mailto:dan@hilltopmanagementgroup.com?subject=Treasury Gap Analysis Request"
-       class="inline-block text-xs font-sans font-semibold tracking-widest uppercase px-8 py-4 bg-brief-gold text-white hover:bg-yellow-700 transition-colors duration-200">
-      Request a Treasury Gap Analysis
-    </a>
   </div>
+</section>
 
-  <!-- Three-column footer -->
-  <div class="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10">
-    <div>
-      <p class="font-serif text-white text-lg font-semibold mb-4">About</p>
-      <p class="font-sans text-stone-400 text-sm leading-relaxed mb-4">
-        Hilltop Management Group is a Milwaukee-based treasury management firm serving private equity and real estate sponsors. We build institutional frameworks that make every dollar work between events.
-      </p>
-      <p class="font-sans text-stone-400 text-xs leading-relaxed">
-        Built on Charles Schwab custody · SEC-Registered RIA
-      </p>
-    </div>
-    <div>
-      <p class="font-serif text-white text-lg font-semibold mb-4">Contact</p>
-      <div class="space-y-3">
-        <div>
-          <p class="font-serif text-white text-base">Daniel Fink</p>
-          <p class="text-xs font-sans text-stone-500 tracking-widest uppercase">Managing Director</p>
-        </div>
-        <a href="mailto:dan@hilltopmanagementgroup.com" class="inline-block font-sans text-brief-gold text-sm hover:text-yellow-400 transition-colors">
-          dan@hilltopmanagementgroup.com
-        </a>
-        <p class="font-sans text-stone-400 text-xs">Milwaukee, Wisconsin</p>
-      </div>
-    </div>
-    <div>
-      <p class="font-serif text-white text-lg font-semibold mb-4">Legal</p>
-      <nav class="space-y-2">
-        <a href="#framework" class="block text-xs font-sans text-stone-400 tracking-widest uppercase hover:text-white transition-colors">Framework</a>
-        <a href="#economics" class="block text-xs font-sans text-stone-400 tracking-widest uppercase hover:text-white transition-colors">Economics</a>
-        <a href="#calculator" class="block text-xs font-sans text-stone-400 tracking-widest uppercase hover:text-white transition-colors">Calculator</a>
-        <a href="#sponsors" class="block text-xs font-sans text-stone-400 tracking-widest uppercase hover:text-white transition-colors">For Sponsors</a>
-      </nav>
-    </div>
-  </div>
-
-  <!-- Footnotes + Disclaimer -->
-  <div class="border-t border-white/10 max-w-7xl mx-auto px-6 py-10">
-    <p class="text-xs font-sans text-stone-400 tracking-widest uppercase mb-4">Footnotes</p>
-    <div class="font-sans text-xs text-stone-400 leading-relaxed space-y-1.5 mb-8 max-w-4xl" style="font-family: 'IBM Plex Mono', 'Courier New', monospace; font-size: 0.68rem;">
-      <p><sup class="text-brief-gold">1</sup> HMG estimate based on Preqin private capital AUM data and industry-average deployment rates.</p>
-      <p><sup class="text-brief-gold">2</sup> Indicative rates based on current U.S. Treasury, agency, and investment-grade corporate yields as of March 2026. Rates subject to change. Not a guarantee of future returns.</p>
-      <p><sup class="text-brief-gold">3</sup> Based on typical bank custodian sweep account rates. Source: Crane Data, March 2026.</p>
-      <p><sup class="text-brief-gold">4</sup> Source: Carta Fund Deployment Report Q2 2024; Bain Global Private Equity Report 2025.</p>
-    </div>
-    <div class="font-sans text-stone-400 leading-relaxed max-w-4xl" style="font-family: 'IBM Plex Mono', 'Courier New', monospace; font-size: 0.65rem; line-height: 1.8;">
-      This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities. All yield and rate information is indicative and based on prevailing market conditions. Past performance does not guarantee future results. Investment involves risk of loss. HMG is not a registered investment adviser. Treasury management services are provided through an SEC-registered RIA partner under a fiduciary standard. FDIC insurance applies to eligible deposit placements through IntraFi Network Deposits, subject to limits.
-    </div>
-    <div class="mt-8 pt-6 border-t border-white/5 flex flex-wrap justify-between items-center gap-4">
-      <p class="font-serif text-white text-sm">Hilltop Management Group</p>
-      <p class="text-xs font-sans text-stone-400">Vol. I &mdash; March 2026 &mdash; Milwaukee, Wisconsin</p>
-    </div>
-  </div>
-</footer>
-
-<!-- ============================================================ -->
-<!-- JAVASCRIPT -->
-<!-- ============================================================ -->
 <script>
-  // Fade-up observer
+  // SCROLL FADE-UP
   const fadeObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); fadeObs.unobserve(e.target); }
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.fade-up').forEach(el => fadeObs.observe(el));
 
-  // Calculator
+  // COUNTER
+  function fmtCounter(raw, prefix, suffix, format, decimal) {
+    if (format === 'currency') {
+      const v = Math.round(raw);
+      if (v >= 1e6) return prefix + (v / 1e6).toFixed(1) + 'M';
+      if (v >= 1e3) return prefix + Math.round(v / 1e3) + 'K';
+      return prefix + v.toLocaleString();
+    }
+    if (decimal) return prefix + (raw / Math.pow(10, decimal)).toFixed(decimal) + suffix;
+    return prefix + Math.round(raw) + suffix;
+  }
+  function animateCounter(el) {
+    const target  = parseFloat(el.dataset.target);
+    const prefix  = el.dataset.prefix  || '';
+    const suffix  = el.dataset.suffix  || '';
+    const format  = el.dataset.format  || '';
+    const decimal = parseInt(el.dataset.decimal) || 0;
+    const t0      = performance.now();
+    const dur     = 1800;
+    (function step(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      const e = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmtCounter(e * target, prefix, suffix, format, decimal);
+      if (p < 1) requestAnimationFrame(step);
+    })(t0);
+  }
+  const ctrObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { animateCounter(e.target); ctrObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-target]').forEach(el => ctrObs.observe(el));
+
+  // CALCULATOR
   const slider   = document.getElementById('fund-slider');
   const fundDisp = document.getElementById('fund-display');
   const idleEl   = document.getElementById('idle-capital');
@@ -705,25 +773,29 @@
     if (n >= 1e3) return '$' + Math.round(n / 1e3) + 'K';
     return '$' + Math.round(n);
   }
-
   function updateCalc() {
-    const aum   = parseFloat(slider.value) * 1e6;
-    const idle  = aum * 0.20;
+    const aum  = parseFloat(slider.value) * 1e6;
+    const idle = aum * 0.20;
     const bleed = idle * 0.0373;
-    const gain  = idle * (0.0393 - 0.005 - 0.002);
-    const pct   = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
-
+    const pct = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
     slider.style.setProperty('--pct', pct + '%');
-    fundDisp.textContent = '$' + slider.value + 'M';
-    idleEl.textContent   = fmt(idle);
-    bleedEl.textContent  = fmt(bleed);
-    monthEl.textContent  = fmt(bleed / 12);
-    gainEl.textContent   = fmt(gain);
+    fundDisp.textContent = slider.value >= 1000
+      ? '$' + (slider.value / 1000).toFixed(1) + 'B'
+      : '$' + slider.value + 'M';
+    idleEl.textContent  = fmt(idle);
+    bleedEl.textContent = fmt(bleed);
+    monthEl.textContent = fmt(bleed / 12);
+    gainEl.textContent  = fmt(bleed - idle * 0.005);
   }
-
   slider.addEventListener('input', updateCalc);
   updateCalc();
-</script>
 
+  // HERO ENTRANCE
+  window.addEventListener('load', () => {
+    document.querySelectorAll('#hero .fade-up').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), 200 + i * 180);
+    });
+  });
+</script>
 </body>
 </html>
