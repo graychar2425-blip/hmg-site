@@ -55,10 +55,6 @@
       margin-top: 0.08em;
     }
 
-    .hero-gradient {
-      background: linear-gradient(to bottom, transparent 40%, #F9F7F2 100%);
-    }
-
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
       vertical-align: middle;
@@ -163,11 +159,11 @@
       Hilltop Management Group
     </a>
     <nav class="hidden md:flex items-center gap-8">
-      <a href="#framework" class="text-xs font-sans font-medium tracking-widest uppercase text-brief-muted hover:text-brief-ink transition-colors">Framework</a>
-      <a href="#economics" class="text-xs font-sans font-medium tracking-widest uppercase text-brief-muted hover:text-brief-ink transition-colors">Economics</a>
-      <a href="#calculator" class="text-xs font-sans font-medium tracking-widest uppercase text-brief-muted hover:text-brief-ink transition-colors">Calculator</a>
-      <a href="#sponsors" class="text-xs font-sans font-medium tracking-widest uppercase text-brief-muted hover:text-brief-ink transition-colors">For Sponsors</a>
-      <a href="#contact" class="text-xs font-sans font-medium tracking-widest uppercase text-brief-muted hover:text-brief-ink transition-colors">Contact</a>
+      <a href="#framework" class="text-xs font-sans font-medium tracking-widest uppercase text-brief-ink/60 hover:text-brief-ink transition-colors">Framework</a>
+      <a href="#economics" class="text-xs font-sans font-medium tracking-widest uppercase text-brief-ink/60 hover:text-brief-ink transition-colors">Economics</a>
+      <a href="#calculator" class="text-xs font-sans font-medium tracking-widest uppercase text-brief-ink/60 hover:text-brief-ink transition-colors">Calculator</a>
+      <a href="#sponsors" class="text-xs font-sans font-medium tracking-widest uppercase text-brief-ink/60 hover:text-brief-ink transition-colors">For Sponsors</a>
+      <a href="#contact" class="text-xs font-sans font-medium tracking-widest uppercase text-brief-ink/60 hover:text-brief-ink transition-colors">Contact</a>
     </nav>
     <div class="text-xs font-sans text-brief-gold tracking-widest uppercase font-medium whitespace-nowrap hidden lg:block">
       Vol. I &mdash; March 2026
@@ -182,38 +178,27 @@
 <!-- ============================================================ -->
 <!-- HERO -->
 <!-- ============================================================ -->
-<section class="relative overflow-hidden" style="min-height: 88vh;">
-  <!-- Background image with grayscale + contrast -->
-  <div class="absolute inset-0" style="z-index:0;">
-    <img
-      src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1800&q=80"
-      alt=""
-      class="w-full h-full object-cover"
-      style="filter: grayscale(100%) contrast(1.15) brightness(0.82);"
-    />
-  </div>
-  <!-- Gradient fade to cream -->
-  <div class="hero-gradient absolute inset-0" style="z-index:1;"></div>
+<section class="bg-brief-olive" style="min-height: 88vh;">
   <!-- Content -->
-  <div class="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-20 flex flex-col justify-end" style="min-height: 88vh;">
+  <div class="max-w-7xl mx-auto px-6 pt-20 pb-24 flex flex-col justify-end" style="min-height: 88vh;">
     <div class="max-w-3xl fade-up">
-      <div class="inline-block bg-brief-olive text-white text-xs font-sans font-semibold tracking-widest uppercase px-4 py-2 mb-8">
+      <div class="inline-block border border-white/30 text-white/90 text-xs font-sans font-semibold tracking-widest uppercase px-4 py-2 mb-8">
         Special Report: The Quiet Bleed
       </div>
-      <h1 class="font-serif text-brief-ink leading-none mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 700;">
+      <h1 class="font-serif text-white leading-none mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 700;">
         Every dollar working.<br>
-        <em class="font-serif" style="font-style: italic; font-weight: 400;">Every day.</em>
+        <em class="font-serif text-brief-gold" style="font-style: italic; font-weight: 400;">Every day.</em>
       </h1>
-      <p class="font-sans text-brief-muted leading-relaxed max-w-xl mb-8" style="font-size: 1.05rem;">
+      <p class="font-sans text-stone-200 leading-relaxed max-w-xl mb-8" style="font-size: 1.05rem;">
         Idle capital has a cost. We build the framework that closes it — across every stage of the capital lifecycle.
       </p>
       <p class="text-xs font-sans tracking-widest uppercase text-brief-gold mb-8">Built on Charles Schwab custody. Designed for institutional discipline.</p>
       <div class="flex flex-wrap gap-4 items-center">
         <a href="mailto:dan@hilltopmanagementgroup.com?subject=Treasury Gap Analysis Request"
-           class="inline-block text-xs font-sans font-semibold tracking-widest uppercase px-7 py-3.5 bg-brief-olive text-white hover:bg-brief-gold transition-colors duration-200">
+           class="inline-block text-xs font-sans font-semibold tracking-widest uppercase px-7 py-3.5 bg-brief-gold text-white hover:bg-yellow-700 transition-colors duration-200">
           Request a Treasury Gap Analysis
         </a>
-        <a href="#framework" class="inline-flex items-center gap-2 text-xs font-sans font-medium tracking-widest uppercase text-brief-muted hover:text-brief-ink transition-colors">
+        <a href="#framework" class="inline-flex items-center gap-2 text-xs font-sans font-medium tracking-widest uppercase text-stone-300 hover:text-white transition-colors">
           <span>Read the analysis</span>
           <span class="material-symbols-outlined text-sm">arrow_downward</span>
         </a>
@@ -254,7 +239,7 @@
       <p class="drop-cap font-sans text-brief-ink leading-relaxed text-base mb-5" style="overflow: hidden;">
         Private equity and real estate sponsors apply rigorous frameworks to deployment — but the capital between events sits unmanaged. Between commitment and close, between exit and redeployment, between vehicles and opportunities, money sits idle. We close those gaps.
       </p>
-      <p class="font-sans text-brief-muted leading-relaxed text-sm mb-8">
+      <p class="font-sans text-brief-ink leading-relaxed text-sm mb-8">
         The discipline that sponsors apply to deployment rarely extends to the capital lifecycle around it. Carry, fees, and IRR get obsessed over. The float in the operating account does not. That silence has a cost — a quiet bleed that erodes returns before a single deal is closed.
       </p>
 
@@ -282,17 +267,17 @@
         <div class="bg-brief-paper border-t-2 border-brief-gold p-5">
           <p class="text-xs font-sans text-brief-gold tracking-widest uppercase mb-2">Gap 01</p>
           <h4 class="font-serif text-brief-ink text-lg mb-2">Between Commitment &amp; Deployment</h4>
-          <p class="text-sm font-sans text-brief-muted leading-relaxed">Capital committed to a fund but not yet called sits in low-yield accounts for months — sometimes years. That window is recoverable yield you're silently forfeiting.</p>
+          <p class="text-sm font-sans text-brief-ink leading-relaxed">Capital committed to a fund but not yet called sits in low-yield accounts for months — sometimes years. That window is recoverable yield you're silently forfeiting.</p>
         </div>
         <div class="bg-brief-paper border-t border-brief-gold/40 p-5">
           <p class="text-xs font-sans text-brief-gold tracking-widest uppercase mb-2">Gap 02</p>
           <h4 class="font-serif text-brief-ink text-lg mb-2">Between Exit &amp; Redeployment</h4>
-          <p class="text-sm font-sans text-brief-muted leading-relaxed">Distributions and realized proceeds return to cash before finding their next home. Without a framework, that capital erodes in real terms while you evaluate the next opportunity.</p>
+          <p class="text-sm font-sans text-brief-ink leading-relaxed">Distributions and realized proceeds return to cash before finding their next home. Without a framework, that capital erodes in real terms while you evaluate the next opportunity.</p>
         </div>
         <div class="bg-brief-paper border-t border-brief-gold/40 p-5">
           <p class="text-xs font-sans text-brief-gold tracking-widest uppercase mb-2">Gap 03</p>
           <h4 class="font-serif text-brief-ink text-lg mb-2">Between Vehicles &amp; Opportunities</h4>
-          <p class="text-sm font-sans text-brief-muted leading-relaxed">Operating reserves, GP commitments, and fund-level cash balances require day-to-day management. Most sponsors have no institutional-grade solution for this layer.</p>
+          <p class="text-sm font-sans text-brief-ink leading-relaxed">Operating reserves, GP commitments, and fund-level cash balances require day-to-day management. Most sponsors have no institutional-grade solution for this layer.</p>
         </div>
       </div>
     </div>
@@ -369,28 +354,28 @@
             <div class="w-8 h-8 rounded-full bg-brief-olive text-white flex items-center justify-center flex-shrink-0 font-sans font-semibold text-xs">01</div>
             <div>
               <p class="font-serif text-brief-ink font-medium text-base mb-1">Treasury Gap Analysis</p>
-              <p class="text-xs font-sans text-brief-muted leading-relaxed">We map your current cash positions, sweep rates, and idle windows to quantify the exact annual opportunity at your scale. Typically completed within one week.</p>
+              <p class="text-xs font-sans text-brief-ink leading-relaxed">We map your current cash positions, sweep rates, and idle windows to quantify the exact annual opportunity at your scale. Typically completed within one week.</p>
             </div>
           </div>
           <div class="flex gap-5 py-5 border-b border-stone-200">
             <div class="w-8 h-8 rounded-full bg-brief-olive text-white flex items-center justify-center flex-shrink-0 font-sans font-semibold text-xs">02</div>
             <div>
               <p class="font-serif text-brief-ink font-medium text-base mb-1">Framework Design</p>
-              <p class="text-xs font-sans text-brief-muted leading-relaxed">Custom ladder structure built around your deployment cadence, liquidity requirements, and duration tolerance. Integrated with legal counsel where required.</p>
+              <p class="text-xs font-sans text-brief-ink leading-relaxed">Custom ladder structure built around your deployment cadence, liquidity requirements, and duration tolerance. Integrated with legal counsel where required.</p>
             </div>
           </div>
           <div class="flex gap-5 py-5 border-b border-stone-200">
             <div class="w-8 h-8 rounded-full bg-brief-olive text-white flex items-center justify-center flex-shrink-0 font-sans font-semibold text-xs">03</div>
             <div>
               <p class="font-serif text-brief-ink font-medium text-base mb-1">Schwab Onboarding</p>
-              <p class="text-xs font-sans text-brief-muted leading-relaxed">Institutional accounts established in your fund's name at Charles Schwab. Branded LP portal, full transparency, daily reporting. 3–8 weeks depending on structure.</p>
+              <p class="text-xs font-sans text-brief-ink leading-relaxed">Institutional accounts established in your fund's name at Charles Schwab. Branded LP portal, full transparency, daily reporting. 3–8 weeks depending on structure.</p>
             </div>
           </div>
           <div class="flex gap-5 pt-5">
             <div class="w-8 h-8 rounded-full bg-brief-gold text-white flex items-center justify-center flex-shrink-0 font-sans font-semibold text-xs">04</div>
             <div>
               <p class="font-serif text-brief-ink font-medium text-base mb-1">Ongoing Management</p>
-              <p class="text-xs font-sans text-brief-muted leading-relaxed">Active monitoring, rebalancing, and quarterly reporting. You focus on deals. We focus on the capital between them.</p>
+              <p class="text-xs font-sans text-brief-ink leading-relaxed">Active monitoring, rebalancing, and quarterly reporting. You focus on deals. We focus on the capital between them.</p>
             </div>
           </div>
         </div>
@@ -412,7 +397,7 @@
       <h2 class="font-serif text-brief-ink font-semibold leading-tight mb-4" style="font-size: clamp(2rem, 4vw, 3rem);">
         See what your fund is leaving behind.
       </h2>
-      <p class="font-sans text-brief-muted text-sm leading-relaxed">
+      <p class="font-sans text-brief-ink text-sm leading-relaxed">
         Adjust the slider to reflect your total fund size. Funds over $500M typically have in-house treasury capacity. The calculator estimates idle capital at 20% of fund size.<sup class="text-brief-gold text-xs">4</sup> Based on industry average across fund lifecycle. Individual fund idle capital varies by deployment pace and vintage.
       </p>
     </div>
@@ -465,7 +450,7 @@
           </div>
         </div>
         <div class="px-6 py-4 bg-brief-paper border-t border-stone-200">
-          <p class="text-xs font-sans text-brief-muted leading-relaxed">Net of estimated 50bps management fee. Based on 3.73% yield gap and 20% idle capital assumption. Indicative only.</p>
+          <p class="text-xs font-sans text-brief-ink leading-relaxed">Net of estimated 50bps management fee. Based on 3.73% yield gap and 20% idle capital assumption. Indicative only.</p>
         </div>
       </div>
     </div>
@@ -506,15 +491,15 @@
           </div>
           <div class="flex justify-between items-baseline py-3">
             <span class="text-sm font-sans text-stone-300">State Street · Apollo</span>
-            <span class="text-xs font-sans text-brief-muted tracking-widest uppercase">Multi-Asset</span>
+            <span class="text-xs font-sans text-stone-400 tracking-widest uppercase">Multi-Asset</span>
           </div>
           <div class="flex justify-between items-baseline py-3">
             <span class="text-sm font-sans text-stone-300">BlackRock · Partners Group</span>
-            <span class="text-xs font-sans text-brief-muted tracking-widest uppercase">Alternatives</span>
+            <span class="text-xs font-sans text-stone-400 tracking-widest uppercase">Alternatives</span>
           </div>
           <div class="flex justify-between items-baseline py-3">
             <span class="text-sm font-sans text-stone-300">KKR · Capital Group</span>
-            <span class="text-xs font-sans text-brief-muted tracking-widest uppercase">Hybrid Capital</span>
+            <span class="text-xs font-sans text-stone-400 tracking-widest uppercase">Hybrid Capital</span>
           </div>
         </div>
       </div>
@@ -546,7 +531,7 @@
             <p class="font-sans text-brief-ink text-sm leading-relaxed mb-4">
               You don't need a fund to look institutional. Whether you're syndicating a single asset, raising a first SPV, or managing capital for a small group of investors — the same idle capital problem exists at your scale.
             </p>
-            <p class="font-sans text-brief-muted text-sm leading-relaxed">
+            <p class="font-sans text-brief-ink text-sm leading-relaxed">
               A $10M SPV with $2M idle still generates $66K in net annual advantage through HMG. More importantly: your investors see a branded Charles Schwab portal with institutional reporting, not a spreadsheet in a shared folder.
             </p>
           </div>
@@ -582,7 +567,7 @@
           <p class="text-xs font-sans text-brief-gold tracking-widest uppercase font-medium mb-1">Emerging Managers</p>
           <h3 class="font-serif text-brief-ink font-semibold text-xl mb-2">Fund I–II</h3>
           <p class="text-xs font-sans text-brief-muted tracking-widest uppercase mb-4">$25M – $250M</p>
-          <p class="font-sans text-brief-muted text-sm leading-relaxed mb-5">
+          <p class="font-sans text-brief-ink text-sm leading-relaxed mb-5">
             Competing against established shops for LP allocations with limited track record. You can't win on performance alone yet — but you can win on infrastructure. HMG gives you the institutional back-office story that closes the credibility gap.
           </p>
           <p class="font-sans text-sm leading-relaxed mb-2">
@@ -595,7 +580,7 @@
           <p class="text-xs font-sans text-brief-gold tracking-widest uppercase font-medium mb-1">Mid-Market PE</p>
           <h3 class="font-serif text-brief-ink font-semibold text-xl mb-2">Fund II–IV</h3>
           <p class="text-xs font-sans text-brief-muted tracking-widest uppercase mb-4">$200M – $2B</p>
-          <p class="font-sans text-brief-muted text-sm leading-relaxed mb-5">
+          <p class="font-sans text-brief-ink text-sm leading-relaxed mb-5">
             The sweet spot where idle capital drag becomes material but in-house treasury operations aren't justified. A $500M fund loses $3.28M annually on unoptimized capital. That's not a rounding error — it's a line item your LPs should be asking about.
           </p>
           <p class="font-sans text-sm leading-relaxed mb-2">
@@ -608,7 +593,7 @@
           <p class="text-xs font-sans text-brief-gold tracking-widest uppercase font-medium mb-1">Real Estate</p>
           <h3 class="font-serif text-brief-ink font-semibold text-xl mb-2">All Strategies</h3>
           <p class="text-xs font-sans text-brief-muted tracking-widest uppercase mb-4">Value-add · Development · Opportunistic</p>
-          <p class="font-sans text-brief-muted text-sm leading-relaxed mb-5">
+          <p class="font-sans text-brief-ink text-sm leading-relaxed mb-5">
             Value-add, development, and opportunistic strategies share a common pattern: significant capital sits idle between acquisitions, during entitlement periods, and between fund vintages. Whether you're a multifamily operator or a mixed-use sponsor — the gap exists and it compounds.
           </p>
           <p class="font-sans text-sm leading-relaxed mb-2">
@@ -647,7 +632,7 @@
       <p class="font-sans text-stone-400 text-sm leading-relaxed mb-4">
         Hilltop Management Group is a Milwaukee-based treasury management firm serving private equity and real estate sponsors. We build institutional frameworks that make every dollar work between events.
       </p>
-      <p class="font-sans text-stone-500 text-xs leading-relaxed">
+      <p class="font-sans text-stone-400 text-xs leading-relaxed">
         Built on Charles Schwab custody · SEC-Registered RIA
       </p>
     </div>
@@ -661,7 +646,7 @@
         <a href="mailto:dan@hilltopmanagementgroup.com" class="inline-block font-sans text-brief-gold text-sm hover:text-yellow-400 transition-colors">
           dan@hilltopmanagementgroup.com
         </a>
-        <p class="font-sans text-stone-500 text-xs">Milwaukee, Wisconsin</p>
+        <p class="font-sans text-stone-400 text-xs">Milwaukee, Wisconsin</p>
       </div>
     </div>
     <div>
@@ -677,19 +662,19 @@
 
   <!-- Footnotes + Disclaimer -->
   <div class="border-t border-white/10 max-w-7xl mx-auto px-6 py-10">
-    <p class="text-xs font-sans text-stone-500 tracking-widest uppercase mb-4">Footnotes</p>
-    <div class="font-sans text-xs text-stone-600 leading-relaxed space-y-1.5 mb-8 max-w-4xl" style="font-family: 'IBM Plex Mono', 'Courier New', monospace; font-size: 0.68rem;">
+    <p class="text-xs font-sans text-stone-400 tracking-widest uppercase mb-4">Footnotes</p>
+    <div class="font-sans text-xs text-stone-400 leading-relaxed space-y-1.5 mb-8 max-w-4xl" style="font-family: 'IBM Plex Mono', 'Courier New', monospace; font-size: 0.68rem;">
       <p><sup class="text-brief-gold">1</sup> HMG estimate based on Preqin private capital AUM data and industry-average deployment rates.</p>
       <p><sup class="text-brief-gold">2</sup> Indicative rates based on current U.S. Treasury, agency, and investment-grade corporate yields as of March 2026. Rates subject to change. Not a guarantee of future returns.</p>
       <p><sup class="text-brief-gold">3</sup> Based on typical bank custodian sweep account rates. Source: Crane Data, March 2026.</p>
       <p><sup class="text-brief-gold">4</sup> Source: Carta Fund Deployment Report Q2 2024; Bain Global Private Equity Report 2025.</p>
     </div>
-    <div class="font-sans text-stone-600 leading-relaxed max-w-4xl" style="font-family: 'IBM Plex Mono', 'Courier New', monospace; font-size: 0.65rem; line-height: 1.8;">
+    <div class="font-sans text-stone-400 leading-relaxed max-w-4xl" style="font-family: 'IBM Plex Mono', 'Courier New', monospace; font-size: 0.65rem; line-height: 1.8;">
       This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities. All yield and rate information is indicative and based on prevailing market conditions. Past performance does not guarantee future results. Investment involves risk of loss. HMG is not a registered investment adviser. Treasury management services are provided through an SEC-registered RIA partner under a fiduciary standard. FDIC insurance applies to eligible deposit placements through IntraFi Network Deposits, subject to limits.
     </div>
     <div class="mt-8 pt-6 border-t border-white/5 flex flex-wrap justify-between items-center gap-4">
       <p class="font-serif text-white text-sm">Hilltop Management Group</p>
-      <p class="text-xs font-sans text-stone-600">Vol. I &mdash; March 2026 &mdash; Milwaukee, Wisconsin</p>
+      <p class="text-xs font-sans text-stone-400">Vol. I &mdash; March 2026 &mdash; Milwaukee, Wisconsin</p>
     </div>
   </div>
 </footer>
